@@ -12,8 +12,7 @@ public class Examination {
         this.date = date;
         this.height = height;
         this.mass = mass;
-        double b = mass / (height/100)*(height/100); //todo: Zdecydować czy to powinno być tutaj?? Czy są dobre typy zmiennych
-        this.bmi = b;
+        this.bmi = mass / (height/100)*(height/100); //todo: Zdecydować czy to powinno być tutaj?? Czy są dobre typy zmiennych
     }
 
     public void setDate(Date date) {
