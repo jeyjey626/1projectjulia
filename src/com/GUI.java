@@ -2,7 +2,7 @@ package com;
 
 import javax.swing.*;
 
-public class GUI{
+public class GUI extends JFrame{
 
     public static void main(String[] args)
     {
@@ -16,6 +16,5 @@ public class GUI{
             frame.setVisible(true);
             }
         });
-        System.out.println("Hello World!");
     }
 }
