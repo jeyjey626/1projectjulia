@@ -11,7 +11,7 @@ public class GUI extends JFrame{
             public void run() {
             JFrame frame = new JFrame("Ahoj Przygodo");
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.add(new JLabel("Hello World"));
+            frame.add(new JLabel("Błagam zadziałaj"));
             frame.pack();
             frame.setVisible(true);
             }
