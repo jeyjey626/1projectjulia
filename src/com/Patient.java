@@ -7,7 +7,7 @@ public class Patient {
     private String pesel;
     private String sex;
     private String insurance;
-    private boolean examination;
+    private Boolean examination;
 
     public Patient(String name, String surname, String pesel, String sex, String insurance)
     {
@@ -29,7 +29,7 @@ public class Patient {
 
     public String getPesel() { return pesel; }
 
-    public boolean isExamination() { return examination; }
+    public Boolean isExamination() { return examination; }
 
     public void setExamination(boolean examination) { this.examination = examination; }
 }
