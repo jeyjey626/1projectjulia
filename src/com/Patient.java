@@ -9,6 +9,8 @@ public class Patient {
     private String insurance;
     private Boolean examination;
 
+    private Examination examinationResults; //Each patient has their own examination
+
     public Patient(String name, String surname, String pesel, String sex, String insurance)
     {
         this.name = name;
@@ -30,6 +32,13 @@ public class Patient {
     public String getPesel() { return pesel; }
 
     public Boolean isExamination() { return examination; }
+
+    public Examination getExaminationResults() { return examinationResults; }
+
+    public void setExaminationResults(Examination examinationResults) //Set examination somewhere along by giving examination object
+    {
+        this.examinationResults = examinationResults;
+    }
 
     public void setExamination(boolean examination) { this.examination = examination; }
 }

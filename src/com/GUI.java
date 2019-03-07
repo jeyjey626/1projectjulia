@@ -12,6 +12,10 @@ import java.awt.EventQueue;
 
 public class GUI extends JFrame{
 
+    private PatientPresenter patientPresenter;
+    private ExaminationPresenter examinationPresenter;
+    private PatientListPresenter patientListPresenter; //adding presenter for each panel
+
     public GUI()
     {
         initUI();
