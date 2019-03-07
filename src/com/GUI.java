@@ -13,15 +13,17 @@ import java.awt.EventQueue;
 public class GUI extends JFrame{
 
     public GUI()
-    /*{
+    {
         initUI();
     }
-    private void initUI()*/
+    private void initUI()
     {
         JFrame frame = new JFrame ("Test");
         frame.setVisible(true);
 
+        //TODO: Draw plan of the GUI to slice them into panels
 
+        //TODO: Check if boxlayout is the best option
 
         JPanel basePanel = new JPanel();
 
@@ -36,12 +38,12 @@ public class GUI extends JFrame{
         bottomPanel.setAlignmentX(1f);
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.X_AXIS));
 
-        JButton Test1 = new JButton();
+        JButton Test1 = new JButton("Ahoj Przygodo");
         bottomPanel.add(Test1);
 
 
         basePanel.add(bottomPanel);
-        basePanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        basePanel.add(Box.createRigidArea(new Dimension(15, 15)));
 
 
         frame.pack();
