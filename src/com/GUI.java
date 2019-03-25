@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.Properties;
+import java.util.Date;
 
 
 public class GUI extends JFrame{
@@ -26,10 +27,9 @@ public class GUI extends JFrame{
 
 
 
-    private PatientPresenter patientPresenter;
-    private ExaminationPresenter examinationPresenter;
-    private PatientListPresenter patientListPresenter; //adding presenter for each panel
+    private Presenter presenter;
 
+    private JTable patientTable;
     private JFrame frame;
     private JMenuItem closeApp;
 
@@ -50,15 +50,12 @@ public class GUI extends JFrame{
     private GUI()
     {
         initUI();
-        abortExamButton.setEnabled(true);
-        abortPatientButton.setEnabled(true);
-        savePatientButton.setEnabled(true);
-        saveExamButton.setEnabled(true);
+
     }
     private void initUI()
     {
-        examinationPresenter = new ExaminationPresenter();
-        patientPresenter = new PatientPresenter();
+
+        presenter = new Presenter();
         frame = new JFrame ("Rejestracja Wyników Badań");
         frame.setVisible(true);
 
@@ -123,7 +120,7 @@ public class GUI extends JFrame{
         savePatientButton.addActionListener(e -> {
             boolean sex;
             sex = male.isSelected();
-            int checkAndSave = patientPresenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()));
+            int checkAndSave = presenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()));
             if(checkAndSave == 0){
                 JOptionPane.showMessageDialog(frame,
                         "Dodano Pacjenta");
@@ -151,11 +148,7 @@ public class GUI extends JFrame{
         abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
         abortPatientButton.addActionListener(e ->{
-                nameT.setText("");
-                surnameT.setText("");
-                peselT.setText("");
-                iBox.setSelectedIndex(0);
-                //group.clearSelection();
+            clearPatient();
         });
 
         aButtonCnt.add(savePatientButton);
@@ -175,6 +168,7 @@ public class GUI extends JFrame{
         patientPanel.add(sexCnt);
         patientPanel.add(insuranceCnt);
         patientPanel.add(aButtonCnt);
+        AppUtils.setPanelEdit(patientPanel, false);
 
         //------------------------------------------------------------------
         //----------------------- Examination Panel -----------------------
@@ -225,28 +219,27 @@ public class GUI extends JFrame{
         JPanel examButtons = new JPanel();
 
         saveExamButton = new JButton("Zapisz");
-        saveExamButton.setEnabled(false);
         saveExamButton.addActionListener(e -> {
             int checkValue;
-            checkValue = examinationPresenter.saveEButton(datePicker.getJFormattedTextField().getText(), weightT.getText(), heightT.getText());
+            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText());
             if(checkValue == 1){
                 JOptionPane.showMessageDialog(frame,
                         "Uzupełnij wszystkie pola",
                         "Błąd",
                         JOptionPane.ERROR_MESSAGE);
             }
+            else if (checkValue == 2){
+                JOptionPane.showMessageDialog(frame,
+                        "Nieprawidłowy format liczb \n Wzrost musi być liczbą całkowitą \nWaga musi być liczbą dodatnią",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         abortExamButton = new JButton("Anuluj");
-        abortExamButton.setEnabled(false);
         abortExamButton.addActionListener(e-> {
             {
-                bmiT.setText("");
-                heightT.setText("");
-                weightT.setText("");
-                datePicker.getModel().setDate(yearInit, monthInit, dayInit);
-                datePicker.getModel().setValue(null);//resetting focus date and clearing value (nothing chosen)
-                datePicker.getJFormattedTextField().setText("");
+                clearExam();
             }
         });
         examButtons.add(saveExamButton);
@@ -263,11 +256,21 @@ public class GUI extends JFrame{
         examPanel.add(bmiCnt);
         examPanel.add(dateCnt);
         examPanel.add(examButtons);
+        AppUtils.setPanelEdit(examPanel, false);
 
         //---------------------------------------------------------
         //------------------------ Patient List Panel  ------------------------
         //---------------------------------------------------------
+       patientTable = new JTable(){
 
+       };
+
+
+
+
+        JPanel listPanel = new JPanel();
+        title = BorderFactory.createTitledBorder("Lista Pacjentów");
+        listPanel.setBorder(title);
 
 
         JPanel basePanel = new JPanel();
@@ -293,9 +296,25 @@ public class GUI extends JFrame{
         frame.pack();
         frame.setSize(600,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        AppUtils.setPanelEdit(examPanel, false);
+        datePicker.getComponent(1).setEnabled(false);
 
     }
+
+    private void clearPatient(){
+        nameT.setText("");
+        surnameT.setText("");
+        peselT.setText("");
+        iBox.setSelectedIndex(0);
+    } //TODO: Write that in the library
+    private void clearExam(){
+        bmiT.setText("");
+        heightT.setText("");
+        weightT.setText("");
+        datePicker.getModel().setDate(yearInit, monthInit, dayInit);
+        datePicker.getModel().setValue(null);//resetting focus date and clearing value (nothing chosen)
+        datePicker.getJFormattedTextField().setText("");
+    } //TODO: same as above
 
 
     public static void main(String[] args)

@@ -5,14 +5,22 @@ package com;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Date;
 
-public class PatientPresenter {
+public class Presenter {
 
 
     private Patient patient;
 
-    public PatientPresenter()
-    {
+    public int saveEButton(String sDate, Date date, String mass, String height){
+        int check = 0;
 
+        boolean weightCh = NumberCheck.isNumber(mass);
+        if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){check = 1;}
+        else if(!StringUtils.isNumeric(height) || !weightCh ){check = 2;}
+        else { //TODO: saving exams
+
+            // examination = new Examination()
+        }
+        return check;
     }
 
     public int savePButton(String name, String surname, String pesel, boolean sex, String insurance){
@@ -22,7 +30,7 @@ public class PatientPresenter {
             //TODO: send patient to library (here or in Patient class?)
         }
         return check;
-    };
+    }
 
     private int checkP(String pesel){
         int check = 0;
@@ -32,5 +40,5 @@ public class PatientPresenter {
 
 
     }
-    //TODO: checkout delegating stuff
+
 }
