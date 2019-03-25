@@ -20,7 +20,7 @@ import java.awt.event.KeyEvent;
 import java.util.Properties;
 
 
-public class GUI extends JFrame implements ActionListener {
+public class GUI extends JFrame{
 
     //Declarations
 
@@ -51,6 +51,7 @@ public class GUI extends JFrame implements ActionListener {
     {
         initUI();
         abortExamButton.setEnabled(true);
+        abortPatientButton.setEnabled(true);
     }
     private void initUI()
     {
@@ -63,9 +64,10 @@ public class GUI extends JFrame implements ActionListener {
         menu.setMnemonic(KeyEvent.VK_A);
 
         closeApp = new JMenuItem("Zamknij ALT+F4");
-        closeApp.addActionListener(this);
+        closeApp.addActionListener( e -> frame.dispose());
         menu.add(closeApp);
         menuBar.add(menu);
+
         //------------------------------------------------------------------
         //----------------------- Patient Data Panel -----------------------
         //------------------------------------------------------------------
@@ -116,11 +118,20 @@ public class GUI extends JFrame implements ActionListener {
 
         savePatientButton = new JButton("Zapisz");
         savePatientButton.setEnabled(false);
-        savePatientButton.addActionListener(this);
+        savePatientButton.addActionListener(e -> {
+            //TODO: check if male or female selected, if not, popup window? Or red text
+                //int checkPesel = patientPresenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText())
+        });
 
         abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
-        abortPatientButton.addActionListener(this);
+        abortPatientButton.addActionListener(e ->{
+                nameT.setText("");
+                surnameT.setText("");
+                peselT.setText("");
+                iBox.setSelectedIndex(0);
+                group.clearSelection();
+        });
 
         aButtonCnt.add(savePatientButton);
         aButtonCnt.add(abortPatientButton);
@@ -190,11 +201,22 @@ public class GUI extends JFrame implements ActionListener {
 
         saveExamButton = new JButton("Zapisz");
         saveExamButton.setEnabled(false);
-        saveExamButton.addActionListener(this);
+        saveExamButton.addActionListener(e -> {
+            //TODO: Check input and create exam for patient
+        });
 
         abortExamButton = new JButton("Anuluj");
         abortExamButton.setEnabled(false);
-        abortExamButton.addActionListener(this);
+        abortExamButton.addActionListener(e-> {
+            {
+                bmiT.setText("");
+                heightT.setText("");
+                weightT.setText("");
+                datePicker.getModel().setDate(yearInit, monthInit, dayInit);
+                datePicker.getModel().setValue(null);//resetting focus date and clearing value (nothing chosen)
+                datePicker.getJFormattedTextField().setText("");
+            }
+        });
         examButtons.add(saveExamButton);
         examButtons.add(abortExamButton);
 
@@ -239,35 +261,6 @@ public class GUI extends JFrame implements ActionListener {
 
     }
 
-    public void actionPerformed(ActionEvent e)
-    {
-        Object source = e.getSource();
-
-        if(source == abortPatientButton){
-            nameT.setText("");
-            surnameT.setText("");
-            peselT.setText("");
-            iBox.setSelectedIndex(0);
-            group.clearSelection();
-        }
-        else if(source == savePatientButton){
-            //TODO: check if male or female selected, if not, popup window? Or red text
-            int checkPesel = patientPresenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText());
-        }
-        else if(source == saveExamButton) {//TODO: Check input and create exam for patient
-        }
-        else if(source == abortExamButton){
-            bmiT.setText("");
-            heightT.setText("");
-            weightT.setText("");
-            datePicker.getModel().setDate(yearInit, monthInit, dayInit);
-            datePicker.getModel().setValue(null);//resetting focus date and clearing value (nothing chosen)
-            datePicker.getJFormattedTextField().setText("");
-
-
-        }
-        else if(source == closeApp){ frame.dispose(); }
-    }
 
     public static void main(String[] args)
     {
