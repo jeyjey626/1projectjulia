@@ -53,9 +53,11 @@ public class GUI extends JFrame{
         abortExamButton.setEnabled(true);
         abortPatientButton.setEnabled(true);
         savePatientButton.setEnabled(true);
+        saveExamButton.setEnabled(true);
     }
     private void initUI()
     {
+        examinationPresenter = new ExaminationPresenter();
         patientPresenter = new PatientPresenter();
         frame = new JFrame ("Rejestracja Wyników Badań");
         frame.setVisible(true);
@@ -192,7 +194,7 @@ public class GUI extends JFrame{
         yearInit = datePicker.getModel().getYear();
         monthInit = datePicker.getModel().getMonth();
         dayInit = datePicker.getModel().getDay();
-
+        datePicker.getJFormattedTextField().setText("");
 
         dateCnt.add(dateL);
         dateCnt.add(datePicker);
@@ -225,7 +227,14 @@ public class GUI extends JFrame{
         saveExamButton = new JButton("Zapisz");
         saveExamButton.setEnabled(false);
         saveExamButton.addActionListener(e -> {
-            //TODO: Check input and create exam for patient
+            int checkValue;
+            checkValue = examinationPresenter.saveEButton(datePicker.getJFormattedTextField().getText(), weightT.getText(), heightT.getText());
+            if(checkValue == 1){
+                JOptionPane.showMessageDialog(frame,
+                        "Uzupełnij wszystkie pola",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         abortExamButton = new JButton("Anuluj");
