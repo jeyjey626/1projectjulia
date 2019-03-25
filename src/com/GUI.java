@@ -52,6 +52,7 @@ public class GUI extends JFrame{
         initUI();
         abortExamButton.setEnabled(true);
         abortPatientButton.setEnabled(true);
+        savePatientButton.setEnabled(true);
     }
     private void initUI()
     {
@@ -100,9 +101,8 @@ public class GUI extends JFrame{
         group = new ButtonGroup();
         group.add(male);
         group.add(female);
-        group.clearSelection();
         sexCnt.add(sexL);
-        sexCnt.add(male); //buttongroup is not a gui component, have to add buttons separately
+        sexCnt.add(male); //button group is not a gui component, have to add buttons separately
         sexCnt.add(female);
 
         //------------------------ Insurance ------------------------
@@ -119,8 +119,31 @@ public class GUI extends JFrame{
         savePatientButton = new JButton("Zapisz");
         savePatientButton.setEnabled(false);
         savePatientButton.addActionListener(e -> {
-            //TODO: check if male or female selected, if not, popup window? Or red text
-                //int checkPesel = patientPresenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText())
+            boolean sex;
+            sex = male.isSelected();
+            int checkAndSave = patientPresenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()));
+            if(checkAndSave == 0){
+                JOptionPane.showMessageDialog(frame,
+                        "Dodano Pacjenta");
+            }
+            else if(checkAndSave == 1){
+                JOptionPane.showMessageDialog(frame,
+                        "Zła długość numeru PESEL",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if (checkAndSave == 2){
+                JOptionPane.showMessageDialog(frame,
+                        "PESEL powienien zawierać jedynie cyfry",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(checkAndSave == 3){
+                JOptionPane.showMessageDialog(frame,
+                        "Pacjent o takim numerze PESEL już istnieje w bazie",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         abortPatientButton = new JButton("Anuluj");
@@ -130,7 +153,7 @@ public class GUI extends JFrame{
                 surnameT.setText("");
                 peselT.setText("");
                 iBox.setSelectedIndex(0);
-                group.clearSelection();
+                //group.clearSelection();
         });
 
         aButtonCnt.add(savePatientButton);
@@ -231,6 +254,10 @@ public class GUI extends JFrame{
         examPanel.add(bmiCnt);
         examPanel.add(dateCnt);
         examPanel.add(examButtons);
+
+        //---------------------------------------------------------
+        //------------------------ Patient List Panel  ------------------------
+        //---------------------------------------------------------
 
 
 
