@@ -11,6 +11,10 @@ public class PatientPresenter {
         this.patient = patient;
     }
 
+    public void savePButton(Patient patient){
+
+    };
+
     //TODO: here all the check methods for data and button action
     //TODO: checkout delegating stuff
 }
