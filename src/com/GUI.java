@@ -137,6 +137,12 @@ public class GUI extends JFrame{
             }
             else if(checkAndSave == 3){
                 JOptionPane.showMessageDialog(frame,
+                        "Uzupełnij wszystkie pola",
+                        "Błąd",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else if(checkAndSave == 4){
+                JOptionPane.showMessageDialog(frame,
                         "Pacjent o takim numerze PESEL już istnieje w bazie",
                         "Błąd",
                         JOptionPane.ERROR_MESSAGE);

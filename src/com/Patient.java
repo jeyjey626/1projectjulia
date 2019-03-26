@@ -26,10 +26,10 @@ public class Patient {
     }
 
     public Vector<Object> getVector(){
-        return new Vector<>(Arrays.asList(getName()+" "+getSurname(),getSex(),getPesel(),getInsurance()));
+        return new Vector<>(Arrays.asList(getName()+" "+getSurname(),getSex(),getPesel(),getInsurance(),isExamination()));
     }
     public Object [] getArray(){
-        Object[] object = {getName()+" "+getSurname(),getSex(),getPesel(),getInsurance()};
+        Object[] object = {getName()+" "+getSurname(),getSex(),getPesel(),getInsurance(),isExamination()};
         return object;
     }
 

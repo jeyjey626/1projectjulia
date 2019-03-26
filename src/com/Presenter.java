@@ -27,29 +27,21 @@ public class Presenter {
     }
 
     public int savePButton(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
-        int check = checkP(pesel);
+        int check = checkP(name, surname, pesel);
         if(check == 0){
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.add(patient);
-
-            {
-                Object[][] data = new Object[patientVectorList.size()][5];
-                for(int i =0; i<patientVectorList.size();i++){
-                    data[i] = patientVectorList.get(i).getArray();
-                }
-
-                table.setModel(AppUtils.createTableM(data));
-
-            }
+            AppUtils.tableUpdate(patientVectorList, table);
             //TODO: send patient to library (here or in Patient class?)
         }
         return check;
     }
 
-    private int checkP(String pesel){
+    private int checkP(String name, String surname, String pesel){
         int check = 0;
-        if(pesel.length() != 11) {check = 1;}
-        if(!StringUtils.isNumeric(pesel)){check = 2;}
+        if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname)){check = 3;}
+        else if(pesel.length() != 11) {check = 1;}
+        else if(!StringUtils.isNumeric(pesel)){check = 2;}
         return check;
 
 
