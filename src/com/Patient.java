@@ -1,11 +1,15 @@
 package com;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Vector;
+
 public class Patient {
 
     private String name;
     private String surname;
     private String pesel;
-    private Boolean sex; // T = male, F = female
+    private String sex; // T = male, F = female
     private String insurance;
     private Boolean examination;
 
@@ -16,10 +20,19 @@ public class Patient {
         this.name = name;
         this.surname = surname;
         this.pesel = pesel;
-        this.sex = sex;
+        if(sex)this.sex = "M"; else this.sex = "K";
         this.insurance = insurance;
         this.examination = false; //Patient starts without the examination
     }
+
+    public Vector<Object> getVector(){
+        return new Vector<>(Arrays.asList(getName()+" "+getSurname(),getSex(),getPesel(),getInsurance()));
+    }
+    public Object [] getArray(){
+        Object[] object = {getName()+" "+getSurname(),getSex(),getPesel(),getInsurance()};
+        return object;
+    }
+
 
     public String getInsurance() { return insurance; }
 
@@ -27,7 +40,7 @@ public class Patient {
 
     public String getSurname() { return surname;}
 
-    public Boolean getSex() { return sex; }
+    public String getSex() { return sex; }
 
     public String getPesel() { return pesel; }
 
