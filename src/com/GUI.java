@@ -21,14 +21,20 @@ import java.awt.event.KeyEvent;
 import java.util.Properties;
 import java.util.Date;
 
+
+//checklist
 //TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
-//TODO: checking patient pesel with database
-//TODO: disabling delete (from list) button if nothing's on the list
-//TODO: clear form after adding patient
+//TODO: disabling delete button if nothing's on the list
 //TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
-//TODO: highlighting BMI result in colors according to bmi norms
+//TODO: highlighting BMI result in colors according to bmi norms?
+//TODO: Disable table when editing, or get selected row straight after clicking edit panel (presenter & Gui issue)
+
+//questions
 //TODO: should "save" instantly clear form or leave it to add the exam? (then make an exceprtion for getselected row -1 -> vector get -1 ???
-//TODO: Editing patient -> importing data
+//TODO: Should I switch dialogs to more pleasant warning types? "bubbles"?
+//TODO: How clearing and enabling panels should look? What to do when and where? Is structure OK?
+//TODO: clear form after adding patient?
+// TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error (or only bmi). Should it be updated live???
 
 public class GUI extends JFrame{
 

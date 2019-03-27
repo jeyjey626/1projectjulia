@@ -14,6 +14,7 @@ public class Presenter {
     public Vector<Patient> patientVectorList = new Vector<>();
     private Patient patient;
 
+    //check&save Exams for patients
     public int saveEButton(String sDate, Date date, String mass, String height, JTable table){
         int check = 0;
 
@@ -25,9 +26,11 @@ public class Presenter {
             patientVectorList.get(table.getSelectedRow()).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height));
             AppUtils.tableUpdate(patientVectorList,table);
         }
+        //TODO: Disable table when editing, or get selected row straight after clicking edit panel
         return check;
     }
 
+    //Sending data to patient panel to enable edit
     public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
         int check = checkP(name, surname, pesel);
         if(check == 0){
@@ -40,6 +43,7 @@ public class Presenter {
         return check;
     }
 
+    //Saving new Patient
     public int savePButton(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
         int check = checkP(name, surname, pesel);
         if(check == 0){
@@ -49,13 +53,13 @@ public class Presenter {
             //table.clearSelection();
             //patientVectorList.get(-1);
             AppUtils.tableUpdate(patientVectorList, table);
-            //TODO: send patient to library (here or in Patient class?)
+            //TODO: should I send patient to library (here or in Patient class?)
         }
         return check;
     }
 
 
-
+    // Deleting Patient
     public void deletePButton(JTable table){
         if(table.getSelectedRow() != -1) {
             patientVectorList.remove(table.getSelectedRow());
@@ -63,12 +67,20 @@ public class Presenter {
         }
     }
 
+    //Checking patient data input
     private int checkP(String name, String surname, String pesel){
         int check = 0;
         if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname)){check = 3;}
         else if(pesel.length() != 11) {check = 1;}
         else if(!StringUtils.isNumeric(pesel)){check = 2;}
-        //TODO: Checking pesel in database
+        else {
+            for (Patient aPatientVectorList : patientVectorList) {
+                if (aPatientVectorList.getPesel().equals(pesel)) {
+                    check = 4;
+                    break;
+                }
+            }
+        }
         return check;
 
 
