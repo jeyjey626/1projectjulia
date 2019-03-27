@@ -28,6 +28,18 @@ public class Presenter {
         return check;
     }
 
+    public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
+        int check = checkP(name, surname, pesel);
+        if(check == 0){
+            Patient patient = new Patient(name, surname, pesel, sex, insurance);
+            patientVectorList.set(table.getSelectedRow(), patient);
+            //table.clearSelection();
+            //patientVectorList.get(-1);
+            AppUtils.tableUpdate(patientVectorList, table);
+        }
+        return check;
+    }
+
     public int savePButton(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
         int check = checkP(name, surname, pesel);
         if(check == 0){

@@ -3,6 +3,7 @@ package com;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Vector;
 
 public class Patient {
@@ -43,14 +44,9 @@ public class Patient {
 
     public int getInsuranceInt(){
         int insInt =0;
-        switch (this.insurance) {
-            case "Brak":
-                insInt = 0;
-            case "NFZ":
-                insInt = 1;
-            case "Prywatne":
-                insInt = 2;
-        }
+        if(Objects.equals(this.insurance, "Brak"))insInt = 0;
+        else if(Objects.equals(this.insurance, "NFZ"))insInt = 1;
+        else if (Objects.equals(this.insurance, "Prywatne"))insInt = 2;
         return insInt;
     }
 

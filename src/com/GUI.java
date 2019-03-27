@@ -23,7 +23,7 @@ import java.util.Date;
 
 //TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
 //TODO: checking patient pesel with database
-//TODO: update existing instead of adding new
+//TODO: update existing instead of adding new -> Vector.set on index, replaces old object --> changing name of the button?
 //TODO: disabling delete (from list) button if nothing's on the list
 //TODO: clear form after adding patient
 //TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
@@ -325,6 +325,7 @@ public class GUI extends JFrame{
             male.setSelected(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
             female.setSelected(!presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
             iBox.setSelectedIndex(presenter.patientVectorList.get(patientTable.getSelectedRow()).getInsuranceInt());
+            savePatientButton.setText("Edytuj");
             //TODO: update existing instead of adding new
         });
         addPatientButton.addActionListener(e->{});
