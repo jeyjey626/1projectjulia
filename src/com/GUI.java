@@ -143,7 +143,7 @@ public class GUI extends JFrame{
                             "Dodano Pacjenta");
                     //TODO: Should I automatically enable exam panel?
                 }
-                else AppUtils.dialogs(checkAndSave, frame);
+                else AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             }
             else if(savePatientButton.getText().equals("Edytuj")){
                 int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
@@ -152,7 +152,7 @@ public class GUI extends JFrame{
                             "Edytowano Pacjenta");
                     savePatientButton.setText("Zapisz");
                 }
-                else AppUtils.dialogs(checkAndEdit, frame);
+                else AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
             }
 
 

@@ -9,8 +9,14 @@ import javax.swing.JTextField;
 public final class AppUtils {
 
    public static String[] columns = {"Imię i nazwisko", "Płeć", "PESEL","Ubezpieczenie","Badanie"};
+   private static final String[] errorPatientText = new String[]{
+           "Zła długość numeru PESEL",
+           "PESEL powienien zawierać jedynie cyfry",
+           "Uzupełnij wszystkie pola",
+           "Pacjent o takim numerze PESEL już istnieje w bazie"
+   };
 
-   public  static DefaultTableModel createTableM(Object[][] data){
+   private static DefaultTableModel createTableM(Object[][] data){
     return new DefaultTableModel(data, columns){
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -19,49 +25,26 @@ public final class AppUtils {
     };
    }
 
-   public static void dialogs(int check, JFrame frame){
-       if (check == 1) {
-           JOptionPane.showMessageDialog(frame,
-                   "Zła długość numeru PESEL",
-                   "Błąd",
-                   JOptionPane.ERROR_MESSAGE);
-       } else if (check == 2) {
-           JOptionPane.showMessageDialog(frame,
-                   "PESEL powienien zawierać jedynie cyfry",
-                   "Błąd",
-                   JOptionPane.ERROR_MESSAGE);
-       } else if (check == 3) {
-           JOptionPane.showMessageDialog(frame,
-                   "Uzupełnij wszystkie pola",
-                   "Błąd",
-                   JOptionPane.ERROR_MESSAGE);
-       } else if (check == 4) {
-           JOptionPane.showMessageDialog(frame,
-                   "Pacjent o takim numerze PESEL już istnieje w bazie",
-                   "Błąd",
-                   JOptionPane.ERROR_MESSAGE);
-       }
+   public static void dialogsPatientDataErrors(int check, JFrame frame){
+       JOptionPane.showMessageDialog(frame, errorPatientText[check-1]);
    }
 
-  /*public static void clearPanel(JPanel panel){
+  public static void clearPanel(JPanel panel){
        Component[] components = panel.getComponents();
        for (Component component : components) {
            if (component.getClass().getName().equals("javax.swing.JPanel")) clearPanel((JPanel) panel);
-           if(component.getClass().getName().equals("javax.swing.JTextField")) {
-               JTextField jTextField = null;
-              // jTextField.setText("");
+           if(component instanceof JTextField) {
+              // JTextField jTextField = null;
+               ((JTextField) component).setText("");
                //component = jTextField;
            }
 
        }
-   }*/
+   }
 
   public static void tableUpdate(Vector<Patient> patientVectorList, JTable table){
       Object[][] data = new Object[patientVectorList.size()][5];
-      for(int i =0; i<patientVectorList.size();i++){
-          data[i] = patientVectorList.get(i).getArray();
-      }
-
+      for(int i =0; i<patientVectorList.size();i++) data[i] = patientVectorList.get(i).getArray();
       table.setModel(AppUtils.createTableM(data));
   }
 
