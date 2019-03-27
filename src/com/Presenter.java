@@ -43,6 +43,7 @@ public class Presenter {
     public int savePButton(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
         int check = checkP(name, surname, pesel);
         if(check == 0){
+
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.add(patient);
             //table.clearSelection();

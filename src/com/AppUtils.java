@@ -19,6 +19,30 @@ public final class AppUtils {
     };
    }
 
+   public static void dialogs(int check, JFrame frame){
+       if (check == 1) {
+           JOptionPane.showMessageDialog(frame,
+                   "Zła długość numeru PESEL",
+                   "Błąd",
+                   JOptionPane.ERROR_MESSAGE);
+       } else if (check == 2) {
+           JOptionPane.showMessageDialog(frame,
+                   "PESEL powienien zawierać jedynie cyfry",
+                   "Błąd",
+                   JOptionPane.ERROR_MESSAGE);
+       } else if (check == 3) {
+           JOptionPane.showMessageDialog(frame,
+                   "Uzupełnij wszystkie pola",
+                   "Błąd",
+                   JOptionPane.ERROR_MESSAGE);
+       } else if (check == 4) {
+           JOptionPane.showMessageDialog(frame,
+                   "Pacjent o takim numerze PESEL już istnieje w bazie",
+                   "Błąd",
+                   JOptionPane.ERROR_MESSAGE);
+       }
+   }
+
   /*public static void clearPanel(JPanel panel){
        Component[] components = panel.getComponents();
        for (Component component : components) {

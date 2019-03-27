@@ -23,7 +23,6 @@ import java.util.Date;
 
 //TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
 //TODO: checking patient pesel with database
-//TODO: update existing instead of adding new -> Vector.set on index, replaces old object --> changing name of the button?
 //TODO: disabling delete (from list) button if nothing's on the list
 //TODO: clear form after adding patient
 //TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
@@ -130,36 +129,28 @@ public class GUI extends JFrame{
         savePatientButton.addActionListener(e -> {
             boolean sex;
             sex = male.isSelected();
-            int checkAndSave = presenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
-            if(checkAndSave == 0){
-                JOptionPane.showMessageDialog(frame,
-                        "Dodano Pacjenta");
-                //TODO: Should I automatically enable exam panel?
+            int checkAndSave;
+            if(savePatientButton.getText().equals("Zapisz")) {
+                checkAndSave = presenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
+                if (checkAndSave == 0) {
+                    JOptionPane.showMessageDialog(frame,
+                            "Dodano Pacjenta");
+                    //TODO: Should I automatically enable exam panel?
+                }
+                else AppUtils.dialogs(checkAndSave, frame);
             }
-            else if(checkAndSave == 1){
-                JOptionPane.showMessageDialog(frame,
-                        "Zła długość numeru PESEL",
-                        "Błąd",
-                        JOptionPane.ERROR_MESSAGE);
+            else if(savePatientButton.getText().equals("Edytuj")){
+                int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
+                if(checkAndEdit == 0){
+                    JOptionPane.showMessageDialog(frame,
+                            "Edytowano Pacjenta");
+                    savePatientButton.setText("Zapisz");
+                }
+                else AppUtils.dialogs(checkAndEdit, frame);
             }
-            else if (checkAndSave == 2){
-                JOptionPane.showMessageDialog(frame,
-                        "PESEL powienien zawierać jedynie cyfry",
-                        "Błąd",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-            else if(checkAndSave == 3){
-                JOptionPane.showMessageDialog(frame,
-                        "Uzupełnij wszystkie pola",
-                        "Błąd",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-            else if(checkAndSave == 4){
-                JOptionPane.showMessageDialog(frame,
-                        "Pacjent o takim numerze PESEL już istnieje w bazie",
-                        "Błąd",
-                        JOptionPane.ERROR_MESSAGE);
-            }
+
+
+
         });
 
         abortPatientButton = new JButton("Anuluj");
