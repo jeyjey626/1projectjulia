@@ -16,18 +16,16 @@ public class Presenter {
 
     //check&save Exams for patients
     public int saveEButton(String sDate, Date date, String mass, String height, JTable table){
-        int check = 0;
-
         boolean weightCh = NumberCheck.isNumber(mass);
-        if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){check = 1;}
-        else if(!StringUtils.isNumeric(height) || !weightCh ){check = 2;}
+        if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){return 1;}
+        else if(!StringUtils.isNumeric(height) || !weightCh ){return 2;}
         else {
             patientVectorList.get(table.getSelectedRow()).setExamination(true);
             patientVectorList.get(table.getSelectedRow()).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height));
             AppUtils.tableUpdate(patientVectorList,table);
         }
         //TODO: Disable table when editing, or get selected row straight after clicking edit panel
-        return check;
+        return 0;
     }
 
     //Sending data to patient panel to enable edit
@@ -69,21 +67,11 @@ public class Presenter {
 
     //Checking patient data input
     private int checkP(String name, String surname, String pesel){
-        int check = 0;
-        if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname)){check = 3;}
-        else if(pesel.length() != 11) {check = 1;}
-        else if(!StringUtils.isNumeric(pesel)){check = 2;}
-        else {
-            for (Patient aPatientVectorList : patientVectorList) {
-                if (aPatientVectorList.getPesel().equals(pesel)) {
-                    check = 4;
-                    break;
-                }
-            }
-        }
-        return check;
-
-
+        if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname)){return 3;}
+        else if(!StringUtils.isNumeric(pesel)){return 2;}
+        else if(pesel.length() != 11) {return 1;}
+        for (Patient aPatientVectorList : patientVectorList) { if (aPatientVectorList.getPesel().equals(pesel)) {return 4;} }
+        return 5;
     }
 
 }
