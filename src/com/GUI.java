@@ -21,9 +21,17 @@ import java.awt.event.KeyEvent;
 import java.util.Properties;
 import java.util.Date;
 
+//TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
+//TODO: checking patient pesel with database
+//TODO: disabling delete (from list) button if nothing's on the list
+//TODO: clear form after adding patient
+//TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
+//TODO: highlighting BMI result in colors according to bmi norms
+//TODO: should "save" instantly clear form or leave it to add the exam? (then make an exceprtion for getselected row -1 -> vector get -1 ???
 
 public class GUI extends JFrame{
 
+    private int checkR;
     //Declarations
     private Presenter presenter;
 
@@ -48,6 +56,8 @@ public class GUI extends JFrame{
     private GUI()
     {
         initUI();
+
+
 
     }
     private void initUI()
@@ -122,6 +132,7 @@ public class GUI extends JFrame{
             if(checkAndSave == 0){
                 JOptionPane.showMessageDialog(frame,
                         "Dodano Pacjenta");
+                //TODO: Should I automatically enable exam panel?
             }
             else if(checkAndSave == 1){
                 JOptionPane.showMessageDialog(frame,
@@ -151,9 +162,7 @@ public class GUI extends JFrame{
 
         abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
-        abortPatientButton.addActionListener(e ->{
-            clearPatient();
-        });
+        abortPatientButton.addActionListener((ActionEvent e) -> clearPatient());
 
         aButtonCnt.add(savePatientButton);
         aButtonCnt.add(abortPatientButton);
@@ -225,7 +234,7 @@ public class GUI extends JFrame{
         saveExamButton = new JButton("Zapisz");
         saveExamButton.addActionListener(e -> {
             int checkValue;
-            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText());
+            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable);
             if(checkValue == 1){
                 JOptionPane.showMessageDialog(frame,
                         "Uzupełnij wszystkie pola",
@@ -238,14 +247,13 @@ public class GUI extends JFrame{
                         "Błąd",
                         JOptionPane.ERROR_MESSAGE);
             }
+            else if(checkValue == 0){
+
+            }
         });
 
         abortExamButton = new JButton("Anuluj");
-        abortExamButton.addActionListener(e-> {
-            {
-                clearExam();
-            }
-        });
+        abortExamButton.addActionListener(e-> clearExam());
         examButtons.add(saveExamButton);
         examButtons.add(abortExamButton);
 
@@ -261,6 +269,7 @@ public class GUI extends JFrame{
         examPanel.add(dateCnt);
         examPanel.add(examButtons);
         AppUtils.setPanelEdit(examPanel, false);
+
 
         //---------------------------------------------------------
         //------------------------ Patient List Panel  ------------------------
@@ -299,11 +308,12 @@ public class GUI extends JFrame{
         addPatientButton.addActionListener(e -> AppUtils.setPanelEdit(patientPanel, true));
         JButton deletePatientButton = new JButton("Usuń");
         deletePatientButton.addActionListener(e -> {
-            //TODO: deleting patient here
+            presenter.deletePButton(patientTable);
         });
         JButton editPatientButton = new JButton("Edytuj");
-        editPatientButton.addActionListener(e->{
+        editPatientButton.addActionListener((ActionEvent e) ->{
             AppUtils.setPanelEdit(examPanel, true);
+            datePicker.getComponent(1).setEnabled(true);
             AppUtils.setPanelEdit(patientPanel, true);
         });
         addPatientButton.addActionListener(e->{});

@@ -19,14 +19,14 @@ public final class AppUtils {
     };
    }
 
-  /* public static void clearPanel(JPanel panel){
+  /*public static void clearPanel(JPanel panel){
        Component[] components = panel.getComponents();
        for (Component component : components) {
            if (component.getClass().getName().equals("javax.swing.JPanel")) clearPanel((JPanel) panel);
            if(component.getClass().getName().equals("javax.swing.JTextField")) {
                JTextField jTextField = null;
-               jTextField.setText("");
-               component = jTextField;
+              // jTextField.setText("");
+               //component = jTextField;
            }
 
        }

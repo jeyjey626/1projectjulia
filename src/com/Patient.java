@@ -2,6 +2,7 @@ package com;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Vector;
 
 public class Patient {
@@ -48,9 +49,10 @@ public class Patient {
 
     public Examination getExaminationResults() { return examinationResults; }
 
-    public void setExaminationResults(Examination examinationResults) //Set examination somewhere along by giving examination object
+    public void setExaminationResults(Date date, double mass, int height) //Set examination somewhere along by giving examination object
     {
-        this.examinationResults = examinationResults;
+        Examination examination = new Examination(date, mass, height);
+        this.examinationResults = examination;
     }
 
     public void setExamination(boolean examination) { this.examination = examination; }
