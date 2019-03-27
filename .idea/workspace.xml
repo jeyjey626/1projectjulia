@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef3bb3-c299-449a-ba36-7eea17be9574" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/AppUtils.java" afterPath="$PROJECT_DIR$/src/com/AppUtils.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/Patient.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/Patient.class" />
       <change beforePath="$PROJECT_DIR$/src/com/GUI.java" afterPath="$PROJECT_DIR$/src/com/GUI.java" />
       <change beforePath="$PROJECT_DIR$/src/com/Patient.java" afterPath="$PROJECT_DIR$/src/com/Patient.java" />
       <change beforePath="$PROJECT_DIR$/src/com/Presenter.java" afterPath="$PROJECT_DIR$/src/com/Presenter.java" />
@@ -24,12 +26,12 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="378">
+              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#11148#11612#0" expanded="true" />
-                <element signature="e#11611#11612#0" expanded="true" />
+                <element signature="e#4691#6162#0" expanded="false" />
+                <element signature="e#11236#11700#0" expanded="true" />
+                <element signature="e#11699#11700#0" expanded="true" />
                 <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
               </folding>
             </state>
@@ -73,10 +75,13 @@
       <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+            <state relative-caret-position="487">
+              <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+                <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+                <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -101,8 +106,8 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="273">
+              <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#checkP#0;class#Presenter#0" expanded="false" />
@@ -140,6 +145,8 @@
       <find>exampan</find>
       <find>savep</find>
       <find>table.</find>
+      <find>iss</find>
+      <find>brak</find>
     </findStrings>
     <replaceStrings>
       <replace>savePatientButton</replace>
@@ -217,8 +224,8 @@
         <option value="$PROJECT_DIR$/src/com/PatientList.java" />
         <option value="$PROJECT_DIR$/src/com/patientList.java" />
         <option value="$PROJECT_DIR$/src/com/AppUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/Patient.java" />
         <option value="$PROJECT_DIR$/src/com/Presenter.java" />
+        <option value="$PROJECT_DIR$/src/com/Patient.java" />
         <option value="$PROJECT_DIR$/src/com/GUI.java" />
       </list>
     </option>
@@ -481,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553610213593</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add and remove patient from vector added, TODO task list on gui created">
+      <created>1553666886291</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1553666886291</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -496,7 +510,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5546875" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32750243" sideWeight="0.4453125" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32750243" sideWeight="0.4453125" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -534,11 +548,26 @@
     <MESSAGE value="added library, only one presenter" />
     <MESSAGE value="working patient adding, decide between using patientList or just presenter, (issue) table still editable" />
     <MESSAGE value="small bug in Vector fixed, moved updating table to Utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="small bug in Vector fixed, moved updating table to Utils" />
+    <MESSAGE value="Add and remove patient from vector added, TODO task list on gui created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add and remove patient from vector added, TODO task list on gui created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/GUI.java</url>
+          <line>324</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/GUI.java</url>
+          <line>325</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -561,6 +590,9 @@
           <caret line="40" column="5" lean-forward="false" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -570,9 +602,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -584,6 +616,9 @@
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,9 +628,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -607,6 +642,9 @@
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,9 +654,9 @@
         <state relative-caret-position="399">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -630,6 +668,9 @@
           <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -639,9 +680,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -653,6 +694,9 @@
           <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -662,9 +706,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -676,6 +720,9 @@
           <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,9 +733,9 @@
         <state relative-caret-position="420">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -700,6 +747,9 @@
           <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,9 +759,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>
@@ -723,6 +773,9 @@
           <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -850,16 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Patient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/patientList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -888,8 +931,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="273">
+          <caret line="13" column="11" lean-forward="false" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#checkP#0;class#Presenter#0" expanded="false" />
@@ -897,14 +940,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="487">
+          <caret line="48" column="23" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#11148#11612#0" expanded="true" />
-            <element signature="e#11611#11612#0" expanded="true" />
+            <element signature="method#getVector#0;class#Patient#0" expanded="false" />
+            <element signature="method#getArray#0;class#Patient#0" expanded="false" />
+            <element signature="method#getSexBool#0;class#Patient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="e#4691#6162#0" expanded="false" />
+            <element signature="e#11236#11700#0" expanded="true" />
+            <element signature="e#11699#11700#0" expanded="true" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
         </state>

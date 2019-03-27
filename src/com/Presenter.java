@@ -11,7 +11,7 @@ import java.util.Vector;
 
 public class Presenter {
 
-    public static Vector<Patient> patientVectorList = new Vector<>();
+    public Vector<Patient> patientVectorList = new Vector<>();
     private Patient patient;
 
     public int saveEButton(String sDate, Date date, String mass, String height, JTable table){
@@ -40,6 +40,8 @@ public class Presenter {
         }
         return check;
     }
+
+
 
     public void deletePButton(JTable table){
         if(table.getSelectedRow() != -1) {

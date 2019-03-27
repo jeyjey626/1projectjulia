@@ -34,6 +34,25 @@ public class Patient {
         return object;
     }
 
+    public Boolean getSexBool(){
+        Boolean boolSex;
+        if(this.sex == "M")boolSex = true;
+        else boolSex = false;
+        return boolSex;
+    }
+
+    public int getInsuranceInt(){
+        int insInt =0;
+        switch (this.insurance) {
+            case "Brak":
+                insInt = 0;
+            case "NFZ":
+                insInt = 1;
+            case "Prywatne":
+                insInt = 2;
+        }
+        return insInt;
+    }
 
     public String getInsurance() { return insurance; }
 

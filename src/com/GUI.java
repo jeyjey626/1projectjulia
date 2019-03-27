@@ -23,11 +23,13 @@ import java.util.Date;
 
 //TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
 //TODO: checking patient pesel with database
+//TODO: update existing instead of adding new
 //TODO: disabling delete (from list) button if nothing's on the list
 //TODO: clear form after adding patient
 //TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
 //TODO: highlighting BMI result in colors according to bmi norms
 //TODO: should "save" instantly clear form or leave it to add the exam? (then make an exceprtion for getselected row -1 -> vector get -1 ???
+//TODO: Editing patient -> importing data
 
 public class GUI extends JFrame{
 
@@ -306,15 +308,24 @@ public class GUI extends JFrame{
 
         JButton addPatientButton = new JButton("Dodaj");
         addPatientButton.addActionListener(e -> AppUtils.setPanelEdit(patientPanel, true));
+
         JButton deletePatientButton = new JButton("Usuń");
         deletePatientButton.addActionListener(e -> {
             presenter.deletePButton(patientTable);
         });
+
         JButton editPatientButton = new JButton("Edytuj");
         editPatientButton.addActionListener((ActionEvent e) ->{
             AppUtils.setPanelEdit(examPanel, true);
             datePicker.getComponent(1).setEnabled(true);
             AppUtils.setPanelEdit(patientPanel, true);
+            nameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getName());
+            surnameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSurname());
+            peselT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getPesel());
+            male.setSelected(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
+            female.setSelected(!presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
+            iBox.setSelectedIndex(presenter.patientVectorList.get(patientTable.getSelectedRow()).getInsuranceInt());
+            //TODO: update existing instead of adding new
         });
         addPatientButton.addActionListener(e->{});
         listButtCnt.add(addPatientButton);
