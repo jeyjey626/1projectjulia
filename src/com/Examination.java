@@ -1,7 +1,7 @@
 package com;
 
 import java.util.Date;
-import java.util.function.DoubleToIntFunction;
+
 
 public class Examination {
 
@@ -9,20 +9,31 @@ public class Examination {
     private double mass;
     private int height;
     private double bmi;
+    private String sDate;
 
-    public  Examination(Date date, double mass, int height)
+    Examination(Date date, double mass, int height, String sDate)
     {
+        this.sDate = sDate;
         this.date = date;
         this.height = height;
         this.mass = mass;
         this.bmi = mass / ((double) height /100)*((double) height /100); //todo: that's not right
     }
 
-    public void setDate(Date date) { this.date = date; }
+    public void setExamination(Date date, double mass, int height, String sDate) //for editing exam purposes, nothing is set separately
+    {
+        this.sDate = sDate;
+        this.date = date;
+        this.height = height;
+        this.mass = mass;
+        this.bmi = mass / ((double) height /100)*((double) height /100); //todo: that's not right
+    }
 
     public Date getDate() { return date; }
 
     public String getBmi() { return String.valueOf(bmi); }
+
+    public String getsDate() { return sDate; }
 
     public String  getMass() { return String.valueOf(mass); }
 

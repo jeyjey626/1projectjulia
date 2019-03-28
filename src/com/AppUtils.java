@@ -18,6 +18,10 @@ public final class AppUtils {
            "Uzupełnij wszystkie pola",
            "Pacjent o takim numerze PESEL już istnieje w bazie"
    };
+   private static final String[] errorExamText = new String[]{
+           "Uzupełnij wszystkie pola",
+           "Nieprawidłowy format liczb \n Wzrost musi być liczbą całkowitą \nWaga musi być liczbą dodatnią, dopuszczalne jedynie użycie ."
+   };
 
    //default model of a Table with uneditable cells
    private static DefaultTableModel createTableM(Object[][] data){
@@ -31,7 +35,11 @@ public final class AppUtils {
 
    //Creating dialog messages TODO: Change into clouds
    public static void dialogsPatientDataErrors(int check, JFrame frame){
-       JOptionPane.showMessageDialog(frame, errorPatientText[check-1]);
+       JOptionPane.showMessageDialog(frame, errorPatientText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
+   }
+
+   public static void dialogsExamInpErrors(int check, JFrame frame){
+       JOptionPane.showMessageDialog(frame, errorExamText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
    }
 
    //Clearing text fields of a panel

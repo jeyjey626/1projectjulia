@@ -5,14 +5,12 @@ package com;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.util.Vector;
 
 public class Presenter {
 
     public Vector<Patient> patientVectorList = new Vector<>();
-    private Patient patient;
 
     //check&save Exams for patients
     public int saveEButton(String sDate, Date date, String mass, String height, JTable table, Integer currentEditIndex){
@@ -21,7 +19,7 @@ public class Presenter {
         else if(!StringUtils.isNumeric(height) || !weightCh ){return 2;}
         else {
             patientVectorList.get(currentEditIndex).setExamination(true);
-            patientVectorList.get(currentEditIndex).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height));
+            patientVectorList.get(currentEditIndex).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height), sDate);
             AppUtils.tableUpdate(patientVectorList,table);
         }
         //TODO: Disable table when editing, or get selected row straight after clicking edit panel

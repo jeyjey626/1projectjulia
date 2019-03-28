@@ -64,10 +64,9 @@ public class Patient {
 
     public Examination getExaminationResults() { return examinationResults; }
 
-    public void setExaminationResults(Date date, double mass, int height) //Set examination somewhere along by giving examination object
+    public void setExaminationResults(Date date, double mass, int height, String sDate) //Set examination somewhere along by giving examination object
     {
-        Examination examination = new Examination(date, mass, height); //todo: change here to enable changes, not only new ones
-        this.examinationResults = examination;
+        examinationResults = new Examination(date, mass, height, sDate); //todo: change here to enable changes, not only new ones
     }
 
     public void setExamination(boolean examination) { this.examination = examination; }
