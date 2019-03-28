@@ -20,13 +20,9 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.text.DecimalFormat;
-import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Formatter;
 import java.util.Properties;
 import java.util.Date;
 
@@ -58,7 +54,6 @@ public class GUI extends JFrame{
     private JTextField weightT, bmiT, heightT;
     private JDatePickerImpl datePicker;
     private JButton saveExamButton, abortExamButton;
-    private int patientCurrentlyEditedIndex; //todo delete that (not useful
     private JButton deletePatientButton;
 
     private int yearInit, monthInit, dayInit;
@@ -158,7 +153,8 @@ public class GUI extends JFrame{
                 }
             }
             else{
-                int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable, patientCurrentlyEditedIndex);
+                int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(),
+                        sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if(checkAndEdit == 0){
                     /*JOptionPane.showMessageDialog(frame,
                             "Edytowano Pacjenta");*/
@@ -307,7 +303,8 @@ public class GUI extends JFrame{
         saveExamButton = new JButton("Zapisz");
         saveExamButton.addActionListener(e -> {
             int checkValue;
-            checkValue = presenter.saveExamination(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable, patientCurrentlyEditedIndex);
+            checkValue = presenter.saveExamination(datePicker.getJFormattedTextField().getText(),
+                    (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable);
             if(checkValue != 0)AppUtils.dialogsExamInpErrors(checkValue, frame);
             else {
                 clearExam(examPanel);
@@ -370,8 +367,6 @@ public class GUI extends JFrame{
                 patientTable.getSelectionModel().addListSelectionListener(e -> {
                     if(patientTable.getSelectedRow()!= -1) {
                         deletePatientButton.setEnabled(true);
-
-                        patientCurrentlyEditedIndex = patientTable.getSelectedRow();
                         AppUtils.setPanelEdit(examPanel, true);
                         datePicker.getComponent(1).setEnabled(true);
                         AppUtils.setPanelEdit(patientPanel, true);

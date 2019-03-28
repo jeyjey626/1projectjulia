@@ -13,15 +13,15 @@ public class Presenter {
     public Vector<Patient> patientVectorList = new Vector<>();
 
     //check&save Exams for patients
-    public int saveExamination(String sDate, Date date, String mass, String height, JTable table, Integer currentEditIndex){
+    public int saveExamination(String sDate, Date date, String mass, String height, JTable table){
         boolean weightCh = NumberCheck.isNumber(mass);
         if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){return 1;}
         else if(!StringUtils.isNumeric(height) || !weightCh ){return 2;}
         else if (Double.parseDouble(mass) < 30 || Double.parseDouble(mass) > 300)return 3;
         else if (Double.parseDouble(height) <100 || Double.parseDouble(height) > 250) return 4;
         else {
-            patientVectorList.get(currentEditIndex).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height), sDate);
-            patientVectorList.get(currentEditIndex).setExamination(true);
+            patientVectorList.get(table.getSelectedRow()).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height), sDate);
+            patientVectorList.get(table.getSelectedRow()).setExamination(true);
             AppUtils.tableUpdate(patientVectorList,table);
         }
         return 0;
@@ -29,12 +29,12 @@ public class Presenter {
 
 
     //Sending data to patient panel to enable edit
-    public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table, int rowEditIndex){
+    public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
         int check = checkPatientInput(name, surname, pesel);
         //when patient is already in database
         if(check == 4 || check == 0){
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
-            patientVectorList.set(rowEditIndex, patient);
+            patientVectorList.set(table.getSelectedRow(), patient);
             AppUtils.tableUpdate(patientVectorList, table);
             check = 0; //all ok, changing check for the right window
         }
