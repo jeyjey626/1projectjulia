@@ -15,7 +15,7 @@ public class Examination {
         this.date = date;
         this.height = height;
         this.mass = mass;
-        this.bmi = mass / ((double) height /100)*((double) height /100);
+        this.bmi = mass / ((double) height /100)*((double) height /100); //todo: that's not right
     }
 
     public void setDate(Date date) { this.date = date; }

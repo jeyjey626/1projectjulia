@@ -33,11 +33,11 @@ public class Presenter {
     public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table, int rowEditIndex){
         int check = checkP(name, surname, pesel);
         //when patient is already in database
-        if(check == 4){
+        if(check == 4 || check == 0){
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.set(rowEditIndex, patient);
             AppUtils.tableUpdate(patientVectorList, table);
-            check = 0; //all ok, changing check
+            check = 0; //all ok, changing check for the right window
         }
         return check;
     }

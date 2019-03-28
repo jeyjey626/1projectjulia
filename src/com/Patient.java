@@ -66,7 +66,7 @@ public class Patient {
 
     public void setExaminationResults(Date date, double mass, int height) //Set examination somewhere along by giving examination object
     {
-        Examination examination = new Examination(date, mass, height);
+        Examination examination = new Examination(date, mass, height); //todo: change here to enable changes, not only new ones
         this.examinationResults = examination;
     }
 

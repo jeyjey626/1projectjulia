@@ -23,11 +23,12 @@ import java.util.Date;
 
 
 //checklist
-//TODO: when choosing edit -> disable table, save/abort -> enable table patientTable.setRowSelectionAllowed(false);
-//TODO: disabling delete button if nothing's on the list
-//TODO: checking input in examP (some norms about height and wait -> Ask if that should be only a warning or an error
-//TODO: highlighting BMI result in colors according to bmi norms?
-//TODO: Disable table when editing, or get selected row straight after clicking edit panel (presenter & Gui issue)
+//TODO: disabling delete button if nothing's on the list (optional)
+//TODO: checking input in examP (some norms about height and weight -> Ask if that should be only a warning or an error -> error
+//Todo: live bmi returning - tf change value handler
+//todo layout
+//todo date to text when returning
+// todo enable exam edit (not always creating new results) -> same as patients -> edit
 
 //questions
 //TODO: should "save" instantly clear form or leave it to add the exam? (then make an exceprtion for getselected row -1 -> vector get -1 ???
@@ -41,6 +42,10 @@ public class GUI extends JFrame{
     private int checkR;
     //Declarations
     private Presenter presenter;
+
+    private JPanel examPanel;
+    private JPanel patientPanel;
+    private JPanel listPanel;
 
     private JTable patientTable;
     private JFrame frame;
@@ -87,7 +92,7 @@ public class GUI extends JFrame{
         //------------------------------------------------------------------
         //----------------------- Patient Data Panel -----------------------
         //------------------------------------------------------------------
-        JPanel patientPanel = new JPanel();
+        patientPanel = new JPanel();
         //------------------------ Name ------------------------
         JPanel nameCnt = new JPanel();
         JLabel nameL = new JLabel("Imię:", SwingConstants.LEFT);
@@ -138,21 +143,24 @@ public class GUI extends JFrame{
             boolean sex;
             sex = male.isSelected();
             int checkAndSave;
-            if(savePatientButton.getText().equals("Zapisz")) {
+            if(patientTable.getSelectionModel().isSelectionEmpty()) {
                 checkAndSave = presenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if (checkAndSave == 0) {
                     JOptionPane.showMessageDialog(frame,
                             "Dodano Pacjenta");
-                    //TODO: Should I automatically enable exam panel?
+                    clearPatient(patientPanel);
                 }
                 else AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             }
-            else if(savePatientButton.getText().equals("Edytuj")){
+            else{
                 int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable, patientCurrentlyEditedIndex);
                 if(checkAndEdit == 0){
                     JOptionPane.showMessageDialog(frame,
                             "Edytowano Pacjenta");
                     savePatientButton.setText("Zapisz");
+                    clearPatient(patientPanel);
+                    clearExam(examPanel);
+                    AppUtils.setPanelEdit(examPanel, false);
                 }
                 else AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
             }
@@ -163,7 +171,10 @@ public class GUI extends JFrame{
 
         abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
-        abortPatientButton.addActionListener((ActionEvent e) -> clearPatient(patientPanel));
+        abortPatientButton.addActionListener((ActionEvent e) -> {
+            clearPatient(patientPanel);
+            patientTable.clearSelection();
+        });
 
         aButtonCnt.add(savePatientButton);
         aButtonCnt.add(abortPatientButton);
@@ -187,7 +198,7 @@ public class GUI extends JFrame{
         //------------------------------------------------------------------
         //----------------------- Examination Panel -----------------------
         //------------------------------------------------------------------
-        JPanel examPanel = new JPanel();
+        examPanel = new JPanel();
         //------------------------ Date  -------------------------
         JPanel dateCnt = new JPanel();
         JLabel dateL = new JLabel("Data", SwingConstants.LEFT);
@@ -275,7 +286,7 @@ public class GUI extends JFrame{
         //---------------------------------------------------------
         //------------------------ Patient List Panel  ------------------------
         //---------------------------------------------------------
-        JPanel listPanel = new JPanel();
+
         //--------------------Table------------------------------
 
         patientTable = new JTable(){
@@ -300,6 +311,34 @@ public class GUI extends JFrame{
                 patientTable.getSelectionModel().addListSelectionListener(e -> {
                     // if(patientList.getSelectedRow() != -1)
                 });
+                patientTable.getSelectionModel().addListSelectionListener(e -> {
+                    if(patientTable.getSelectedRow()!= -1) {
+                        patientCurrentlyEditedIndex = patientTable.getSelectedRow();
+                        AppUtils.setPanelEdit(examPanel, true);
+                        datePicker.getComponent(1).setEnabled(true);
+                        AppUtils.setPanelEdit(patientPanel, true);
+
+                        nameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getName());
+                        surnameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSurname());
+                        peselT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getPesel());
+                        male.setSelected(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
+                        female.setSelected(!presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
+                        iBox.setSelectedIndex(presenter.patientVectorList.get(patientTable.getSelectedRow()).getInsuranceInt());
+                        savePatientButton.setText("Edytuj");
+
+                        if (presenter.patientVectorList.get(patientTable.getSelectedRow()).isExamination()) {
+                            heightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getHeight());
+                            weightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getMass());
+                            bmiT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getBmi());
+                            datePicker.getJFormattedTextField().setText(String.valueOf((presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate())));
+                            //datePicker.getModel().setDate(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
+                            //datePicker.getModel().setValue(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
+                            //todo: set date as was chosen
+                            //todo: move to library
+                            //todo: date to string in yyyy-mm-dd
+                        }
+                    }
+                } );
 
             JScrollPane patientTableScroll = new JScrollPane(patientTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -311,46 +350,21 @@ public class GUI extends JFrame{
             AppUtils.setPanelEdit(patientPanel, true);
             clearPatient(patientPanel);
             clearExam(examPanel);
+            patientTable.clearSelection();
+            savePatientButton.setText("Zapisz");
         });
 
         JButton deletePatientButton = new JButton("Usuń");
         deletePatientButton.addActionListener(e -> {
             presenter.deletePButton(patientTable);
             clearExam(examPanel);
-            clearPatient(patientPanel);//todo: is clearing necessary?
+            clearPatient(patientPanel);
         });
 
-        JButton editPatientButton = new JButton("Edytuj");
-        editPatientButton.addActionListener((ActionEvent e) ->{
-            patientCurrentlyEditedIndex = patientTable.getSelectedRow();
-            AppUtils.setPanelEdit(examPanel, true);
-            datePicker.getComponent(1).setEnabled(true);
-            AppUtils.setPanelEdit(patientPanel, true);
-            //patientTable.setRowSelectionAllowed(false); //todo: set true when saving edition
-
-            nameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getName());
-            surnameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSurname());
-            peselT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getPesel());
-            male.setSelected(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
-            female.setSelected(!presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
-            iBox.setSelectedIndex(presenter.patientVectorList.get(patientTable.getSelectedRow()).getInsuranceInt());
-            savePatientButton.setText("Edytuj");
-
-            if(presenter.patientVectorList.get(patientTable.getSelectedRow()).isExamination()) {
-                heightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getHeight());
-                weightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getMass());
-                bmiT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getBmi());
-                datePicker.getJFormattedTextField().setText(String.valueOf((presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate())));
-                //datePicker.getModel().setDate(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
-                //datePicker.getModel().setValue(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
-                //todo: set date as was chosen
-            }
-        });
-        addPatientButton.addActionListener(e->{});
         listButtCnt.add(addPatientButton);
         listButtCnt.add(deletePatientButton);
-        listButtCnt.add(editPatientButton);
 
+        listPanel = new JPanel();
         title = BorderFactory.createTitledBorder("Lista Pacjentów");
         listPanel.setBorder(title);
         listPanel.add(listButtCnt);
@@ -396,8 +410,5 @@ public class GUI extends JFrame{
         datePicker.getJFormattedTextField().setText("");
     }
     
-    public static void main(String[] args)
-    {
-        SwingUtilities.invokeLater(GUI::new);
-    }
+    public static void main(String[] args){ SwingUtilities.invokeLater(GUI::new); }
 }
