@@ -16,7 +16,8 @@ public final class AppUtils {
            "Zła długość numeru PESEL",
            "PESEL powienien zawierać jedynie cyfry",
            "Uzupełnij wszystkie pola",
-           "Pacjent o takim numerze PESEL już istnieje w bazie"
+           "Pacjent o takim numerze PESEL już istnieje w bazie",
+           "Imię i Nazwisko powinno składać się jedynie z liter"
    };
    private static final String[] errorExamText = new String[]{
            "Uzupełnij wszystkie pola",

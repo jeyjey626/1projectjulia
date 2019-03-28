@@ -30,7 +30,6 @@ import java.util.TimeZone;
 //TODO: checking input in examP (some norms about height and weight -> Ask if that should be only a warning or an error -> error
 //Todo: live bmi returning - tf change value handler
 //todo layout
-// todo enable exam edit (not always creating new results) -> same as patients -> edit
 
 
 public class GUI extends JFrame{
@@ -138,7 +137,7 @@ public class GUI extends JFrame{
             sex = male.isSelected();
             int checkAndSave;
             if(patientTable.getSelectionModel().isSelectionEmpty()) {
-                checkAndSave = presenter.savePButton(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
+                checkAndSave = presenter.savePatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if (checkAndSave == 0) {
                     JOptionPane.showMessageDialog(frame,
                             "Dodano Pacjenta");
@@ -240,7 +239,7 @@ public class GUI extends JFrame{
         saveExamButton = new JButton("Zapisz");
         saveExamButton.addActionListener(e -> {
             int checkValue;
-            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable, patientCurrentlyEditedIndex);
+            checkValue = presenter.saveExamination(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable, patientCurrentlyEditedIndex);
             if(checkValue != 0)AppUtils.dialogsExamInpErrors(checkValue, frame);
             else { //todo: dialogs about edit/save
 
@@ -337,6 +336,7 @@ public class GUI extends JFrame{
         JButton addPatientButton = new JButton("Dodaj");
         addPatientButton.addActionListener(e -> {
             AppUtils.setPanelEdit(patientPanel, true);
+            AppUtils.setPanelEdit(examPanel,false);
             clearPatient(patientPanel);
             clearExam(examPanel);
             patientTable.clearSelection();
@@ -346,7 +346,7 @@ public class GUI extends JFrame{
         deletePatientButton = new JButton("Usuń");
         deletePatientButton.setEnabled(false);
         deletePatientButton.addActionListener(e -> {
-            presenter.deletePButton(patientTable);
+            presenter.deletePatient(patientTable);
             clearExam(examPanel);
             clearPatient(patientPanel);
         });

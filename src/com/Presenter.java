@@ -13,23 +13,22 @@ public class Presenter {
     public Vector<Patient> patientVectorList = new Vector<>();
 
     //check&save Exams for patients
-    public int saveEButton(String sDate, Date date, String mass, String height, JTable table, Integer currentEditIndex){
+    public int saveExamination(String sDate, Date date, String mass, String height, JTable table, Integer currentEditIndex){
         boolean weightCh = NumberCheck.isNumber(mass);
         if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){return 1;}
         else if(!StringUtils.isNumeric(height) || !weightCh ){return 2;}
         else {
-            patientVectorList.get(currentEditIndex).setExamination(true);
             patientVectorList.get(currentEditIndex).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height), sDate);
+            patientVectorList.get(currentEditIndex).setExamination(true);
             AppUtils.tableUpdate(patientVectorList,table);
         }
-        //TODO: Disable table when editing, or get selected row straight after clicking edit panel
         return 0;
     }
 
 
     //Sending data to patient panel to enable edit
     public int editPatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table, int rowEditIndex){
-        int check = checkP(name, surname, pesel);
+        int check = checkPatientInput(name, surname, pesel);
         //when patient is already in database
         if(check == 4 || check == 0){
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
@@ -41,8 +40,8 @@ public class Presenter {
     }
 
     //Saving new Patient
-    public int savePButton(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
-        int check = checkP(name, surname, pesel);
+    public int savePatient(String name, String surname, String pesel, boolean sex, String insurance, JTable table){
+        int check = checkPatientInput(name, surname, pesel);
         if(check == 0){
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.add(patient);
@@ -54,7 +53,7 @@ public class Presenter {
 
 
     // Deleting Patient
-    public void deletePButton(JTable table){
+    public void deletePatient(JTable table){
         if(table.getSelectedRow() != -1) {
             patientVectorList.remove(table.getSelectedRow());
             AppUtils.tableUpdate(patientVectorList, table);
@@ -62,10 +61,11 @@ public class Presenter {
     }
 
     //Checking patient data input
-    private int checkP(String name, String surname, String pesel){
-        if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname)){return 3;}
-        else if(!StringUtils.isNumeric(pesel)){return 2;}
-        else if(pesel.length() != 11) {return 1;}
+    private int checkPatientInput(String name, String surname, String pesel){
+        if(!StringUtils.isAlpha(name) || !StringUtils.isAlpha(surname)) return 5;
+        if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname))return 3;
+        if(!StringUtils.isNumeric(pesel))return 2;
+        if(pesel.length() != 11) return 1;
         for (Patient aPatientVectorList : patientVectorList) { if (aPatientVectorList.getPesel().equals(pesel)) {return 4;} }
         return 0;
     }

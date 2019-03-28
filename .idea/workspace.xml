@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef3bb3-c299-449a-ba36-7eea17be9574" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/Examination.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/Examination.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/Patient.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/Patient.class" />
       <change beforePath="$PROJECT_DIR$/src/com/AppUtils.java" afterPath="$PROJECT_DIR$/src/com/AppUtils.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/Examination.java" afterPath="$PROJECT_DIR$/src/com/Examination.java" />
       <change beforePath="$PROJECT_DIR$/src/com/GUI.java" afterPath="$PROJECT_DIR$/src/com/GUI.java" />
       <change beforePath="$PROJECT_DIR$/src/com/Patient.java" afterPath="$PROJECT_DIR$/src/com/Patient.java" />
       <change beforePath="$PROJECT_DIR$/src/com/Presenter.java" afterPath="$PROJECT_DIR$/src/com/Presenter.java" />
@@ -25,16 +28,15 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+            <state relative-caret-position="1470">
+              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1803#1804#0" expanded="true" />
-                <element signature="e#1827#1828#0" expanded="true" />
-                <element signature="e#6068#6181#0" expanded="false" />
-                <element signature="e#10626#11090#0" expanded="true" />
-                <element signature="e#11089#11090#0" expanded="true" />
-                <element signature="e#15039#15180#0" expanded="false" />
+                <element signature="e#1716#1717#0" expanded="true" />
+                <element signature="e#1740#1741#0" expanded="true" />
+                <element signature="e#5981#6094#0" expanded="false" />
+                <element signature="e#10543#11007#0" expanded="true" />
+                <element signature="e#11006#11007#0" expanded="true" />
                 <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
                 <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
               </folding>
@@ -45,8 +47,8 @@
       <file leaf-file-name="Examination.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Examination.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            <state relative-caret-position="609">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,8 +57,8 @@
       <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="68" column="129" lean-forward="false" selection-start-line="68" selection-start-column="129" selection-end-line="68" selection-end-column="129" />
+            <state relative-caret-position="0">
+              <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getVector#0;class#Patient#0" expanded="false" />
@@ -70,12 +72,12 @@
       <file leaf-file-name="AppUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/AppUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="36" column="72" lean-forward="true" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
+            <state relative-caret-position="273">
+              <caret line="19" column="64" lean-forward="true" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1091#1092#0" expanded="true" />
-                <element signature="e#1127#1128#0" expanded="true" />
+                <element signature="e#1157#1158#0" expanded="true" />
+                <element signature="e#1193#1194#0" expanded="true" />
                 <element signature="method#clearTextFields#0;class#AppUtils#0" expanded="false" />
                 <element signature="method#tableUpdate#0;class#AppUtils#0" expanded="false" />
                 <element signature="method#setPanelEdit#0;class#AppUtils#0" expanded="false" />
@@ -87,12 +89,13 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-315">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="302">
+              <caret line="66" column="50" lean-forward="true" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
               <folding>
-                <element signature="method#savePButton#0;class#Presenter#0" expanded="false" />
-                <element signature="method#deletePButton#0;class#Presenter#0" expanded="false" />
-                <element signature="method#checkP#0;class#Presenter#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#saveExamination#0;class#Presenter#0" expanded="false" />
+                <element signature="method#savePatient#0;class#Presenter#0" expanded="false" />
+                <element signature="method#deletePatient#0;class#Presenter#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,8 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setpan</find>
-      <find>nameT</find>
       <find>vecto</find>
       <find>listapacjentow</find>
       <find>vector</find>
@@ -129,7 +130,6 @@
       <find>patientp</find>
       <find>clearTextfields</find>
       <find>editp</find>
-      <find>addp</find>
       <find>delete</find>
       <find>isse</find>
       <find>patientt</find>
@@ -139,6 +139,9 @@
       <find>saveex</find>
       <find>setv</find>
       <find>setval</find>
+      <find>setdat</find>
+      <find>curre</find>
+      <find>addp</find>
     </findStrings>
     <replaceStrings>
       <replace>savePatientButton</replace>
@@ -216,10 +219,10 @@
         <option value="$PROJECT_DIR$/src/com/NumberCheck.java" />
         <option value="$PROJECT_DIR$/src/com/PatientList.java" />
         <option value="$PROJECT_DIR$/src/com/patientList.java" />
-        <option value="$PROJECT_DIR$/src/com/AppUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/Patient.java" />
-        <option value="$PROJECT_DIR$/src/com/Presenter.java" />
         <option value="$PROJECT_DIR$/src/com/Examination.java" />
+        <option value="$PROJECT_DIR$/src/com/Patient.java" />
+        <option value="$PROJECT_DIR$/src/com/AppUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/Presenter.java" />
         <option value="$PROJECT_DIR$/src/com/GUI.java" />
       </list>
     </option>
@@ -560,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553782756018</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="date in exam fixed">
+      <created>1553787209752</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1553787209752</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -576,7 +586,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32673267" sideWeight="0.55677086" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32673267" sideWeight="0.44322917" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -622,19 +632,20 @@
     <MESSAGE value="functions shortened" />
     <MESSAGE value="fixed some of editing issues" />
     <MESSAGE value="bug fixing, working" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixing, working" />
+    <MESSAGE value="date in exam fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="date in exam fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/AppUtils.java</url>
-          <line>27</line>
+          <url>file://$PROJECT_DIR$/src/com/Patient.java</url>
+          <line>70</line>
           <properties />
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -658,12 +669,11 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -689,12 +699,11 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -720,12 +729,11 @@
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -751,12 +759,11 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -782,12 +789,11 @@
           <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -814,12 +820,11 @@
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -845,12 +850,11 @@
           <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -985,6 +989,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="757" column="0" lean-forward="false" selection-start-line="757" selection-start-column="0" selection-end-line="757" selection-end-column="0" />
+          <folding>
+            <element signature="e#28850#28851#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1008,8 +1015,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="68" column="129" lean-forward="false" selection-start-line="68" selection-start-column="129" selection-end-line="68" selection-end-column="129" />
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getVector#0;class#Patient#0" expanded="false" />
@@ -1019,14 +1026,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Examination.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/AppUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="36" column="72" lean-forward="true" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
+        <state relative-caret-position="273">
+          <caret line="19" column="64" lean-forward="true" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1091#1092#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="e#1157#1158#0" expanded="true" />
+            <element signature="e#1193#1194#0" expanded="true" />
             <element signature="method#clearTextFields#0;class#AppUtils#0" expanded="false" />
             <element signature="method#tableUpdate#0;class#AppUtils#0" expanded="false" />
             <element signature="method#setPanelEdit#0;class#AppUtils#0" expanded="false" />
@@ -1036,36 +1051,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="302">
+          <caret line="66" column="50" lean-forward="true" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
           <folding>
-            <element signature="method#savePButton#0;class#Presenter#0" expanded="false" />
-            <element signature="method#deletePButton#0;class#Presenter#0" expanded="false" />
-            <element signature="method#checkP#0;class#Presenter#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#saveExamination#0;class#Presenter#0" expanded="false" />
+            <element signature="method#savePatient#0;class#Presenter#0" expanded="false" />
+            <element signature="method#deletePatient#0;class#Presenter#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Examination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        <state relative-caret-position="1470">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1803#1804#0" expanded="true" />
-            <element signature="e#1827#1828#0" expanded="true" />
-            <element signature="e#6068#6181#0" expanded="false" />
-            <element signature="e#10626#11090#0" expanded="true" />
-            <element signature="e#11089#11090#0" expanded="true" />
-            <element signature="e#15039#15180#0" expanded="false" />
+            <element signature="e#1716#1717#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+            <element signature="e#5981#6094#0" expanded="false" />
+            <element signature="e#10543#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>

@@ -1,5 +1,7 @@
 package com;
 
+
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
@@ -17,7 +19,7 @@ public class Patient {
 
     private Examination examinationResults; //Each patient has their own examination
 
-    public Patient(String name, String surname, String pesel, Boolean sex, String insurance)
+    Patient(String name, String surname, String pesel, Boolean sex, String insurance)
     {
         this.name = name;
         this.surname = surname;
@@ -66,7 +68,8 @@ public class Patient {
 
     public void setExaminationResults(Date date, double mass, int height, String sDate) //Set examination somewhere along by giving examination object
     {
-        examinationResults = new Examination(date, mass, height, sDate); //todo: change here to enable changes, not only new ones
+        if(examination) examinationResults.setExamination(date, mass, height, sDate);
+        else examinationResults = new Examination(date, mass, height, sDate); //todo: change here to enable changes, not only new ones
     }
 
     public void setExamination(boolean examination) { this.examination = examination; }
