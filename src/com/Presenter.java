@@ -17,6 +17,8 @@ public class Presenter {
         boolean weightCh = NumberCheck.isNumber(mass);
         if(StringUtils.isEmpty(mass)||StringUtils.isEmpty(height)||StringUtils.isEmpty(sDate)){return 1;}
         else if(!StringUtils.isNumeric(height) || !weightCh ){return 2;}
+        else if (Double.parseDouble(mass) < 30 || Double.parseDouble(mass) > 300)return 3;
+        else if (Double.parseDouble(height) <100 || Double.parseDouble(height) > 250) return 4;
         else {
             patientVectorList.get(currentEditIndex).setExaminationResults(date, Double.parseDouble(mass), Integer.parseInt(height), sDate);
             patientVectorList.get(currentEditIndex).setExamination(true);
@@ -46,7 +48,6 @@ public class Presenter {
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.add(patient);
             AppUtils.tableUpdate(patientVectorList, table);
-            //TODO: should I send patient to library (here or in Patient class?)
         }
         return check;
     }

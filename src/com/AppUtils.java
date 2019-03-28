@@ -3,6 +3,8 @@ package com;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.Formatter;
 import java.util.Vector;
 import javax.swing.JTextField;
 
@@ -21,7 +23,9 @@ public final class AppUtils {
    };
    private static final String[] errorExamText = new String[]{
            "Uzupełnij wszystkie pola",
-           "Nieprawidłowy format liczb \n Wzrost musi być liczbą całkowitą \nWaga musi być liczbą dodatnią, dopuszczalne jedynie użycie ."
+           "Nieprawidłowy format liczb \n Wzrost musi być liczbą całkowitą \nWaga musi być liczbą dodatnią, dopuszczalne jedynie użycie .",
+           "Waga poza zakresem - dopuszczalny zakres wagi to 30 - 300kg",
+           "Wzrost poza zakresem - dopuszczalny zakres wzrostu to 100 - 250cm"
    };
 
    //default model of a Table with uneditable cells
@@ -74,8 +78,14 @@ public final class AppUtils {
        }
    }
 
-   public static double countBmi(double mass, double height){
-        double bmi = mass/((height/100)*(height/100));
-        return bmi;
+   public static String countBmiDisplay(double mass, double height){
+        double heightPerc = height/100;
+        double heightDoub = heightPerc*heightPerc;
+        double finalBmi = mass/heightDoub;
+       Formatter formatter = new Formatter();
+       formatter.format("%.2f", finalBmi);
+      // DecimalFormat bmiFormat = new DecimalFormat("#.00");
+       //bmiFormat.format(finalBmi);
+       return String.valueOf(formatter);
     }
 }

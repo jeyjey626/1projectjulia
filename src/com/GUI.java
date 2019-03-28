@@ -21,8 +21,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Formatter;
 import java.util.Properties;
 import java.util.Date;
 
@@ -30,7 +33,6 @@ import java.util.Date;
 //checklist
 
 //TODO: checking input in examP (some norms about height and weight -> Ask if that should be only a warning or an error -> error
-//Todo: bmi counting
 //todo layout
 
 
@@ -144,6 +146,8 @@ public class GUI extends JFrame{
                     JOptionPane.showMessageDialog(frame,
                             "Dodano Pacjenta");
                     clearPatient(patientPanel);
+                    AppUtils.setPanelEdit(patientPanel,false);
+                    AppUtils.setPanelEdit(examPanel, false);
                 }
                 else AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             }
@@ -155,6 +159,7 @@ public class GUI extends JFrame{
                     savePatientButton.setText("Zapisz");
                     clearPatient(patientPanel);
                     clearExam(examPanel);
+                    AppUtils.setPanelEdit(patientPanel, false);
                     AppUtils.setPanelEdit(examPanel, false);
                 }
                 else AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
@@ -238,8 +243,8 @@ public class GUI extends JFrame{
                 boolean weightCh = NumberCheck.isNumber(weight);
 
                 if(StringUtils.isNumeric(height) && weightCh && !StringUtils.isEmpty(weight) && !StringUtils.isEmpty(height)){
-                    double bmi = AppUtils.countBmi(Double.parseDouble(weight), Double.parseDouble(height));
-                    bmiT.setText(String.valueOf(bmi));
+                    String bmi = AppUtils.countBmiDisplay(Double.parseDouble(weight), Double.parseDouble(height));
+                    bmiT.setText(bmi);
                 }
             }
         });
@@ -269,8 +274,8 @@ public class GUI extends JFrame{
                 boolean weightCh = NumberCheck.isNumber(weight);
 
                 if(StringUtils.isNumeric(height) && weightCh && !StringUtils.isEmpty(weight) && !StringUtils.isEmpty(height)){
-                    double bmi = AppUtils.countBmi(Double.parseDouble(weight), Double.parseDouble(height));
-                    bmiT.setText(String.valueOf(bmi));
+                    String bmi = AppUtils.countBmiDisplay(Double.parseDouble(weight), Double.parseDouble(height));
+                    bmiT.setText(bmi);
                 }
             }
         });
@@ -291,7 +296,13 @@ public class GUI extends JFrame{
             int checkValue;
             checkValue = presenter.saveExamination(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable, patientCurrentlyEditedIndex);
             if(checkValue != 0)AppUtils.dialogsExamInpErrors(checkValue, frame);
-            else { //todo: dialogs about edit/save
+            else {
+                clearExam(examPanel);
+                clearPatient(patientPanel);
+                savePatientButton.setText("Zapisz");
+                AppUtils.setPanelEdit(examPanel,false);
+                AppUtils.setPanelEdit(patientPanel,false);
+                //todo: dialogs about edit/save
 
             }
         });
@@ -363,7 +374,7 @@ public class GUI extends JFrame{
                         if (presenter.patientVectorList.get(patientTable.getSelectedRow()).isExamination()) {
                             heightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getHeight());
                             weightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getMass());
-                            bmiT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getBmi());
+                            bmiT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getBmiString());
                             datePicker.getJFormattedTextField().setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getsDate());
                             LocalDate localDate = presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                             int year  = localDate.getYear();
