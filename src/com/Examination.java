@@ -1,6 +1,5 @@
 package com;
 
-import java.text.Normalizer;
 import java.util.Date;
 import java.util.Formatter;
 
@@ -19,7 +18,9 @@ public class Examination {
         this.date = date;
         this.height = height;
         this.mass = mass;
-        this.bmi = mass / ((double) height /100)*((double) height /100); //todo: that's not right
+        double heightPerc = height/100;
+        double heightDoub = heightPerc*heightPerc;
+        this.bmi = mass/heightDoub;
     }
 
     public void setExamination(Date date, double mass, int height, String sDate) //for editing exam purposes, nothing is set separately
@@ -29,8 +30,8 @@ public class Examination {
         this.height = height;
         double heightPerc = height/100;
         double heightDoub = heightPerc*heightPerc;
-        this.mass = mass/heightDoub;
-        this.bmi = mass / ((double) height /100)*((double) height /100); //todo: that's not right
+        this.bmi = mass/heightDoub;
+        this.mass = mass;
     }
 
     public Date getDate() { return date; }

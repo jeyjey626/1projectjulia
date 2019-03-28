@@ -3,7 +3,6 @@ package com;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.text.DecimalFormat;
 import java.util.Formatter;
 import java.util.Vector;
 import javax.swing.JTextField;
@@ -38,13 +37,14 @@ public final class AppUtils {
     };
    }
 
-   //Creating dialog messages TODO: Change into clouds
-   public static void dialogsPatientDataErrors(int check, JFrame frame){
-       JOptionPane.showMessageDialog(frame, errorPatientText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
+   public static void dialogsPatientDataErrors(int check, JFrame frame) throws InterruptedException {
+       //JOptionPane.showMessageDialog(frame, errorPatientText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
+       new ToastMessage(errorPatientText[check-1], 2000, frame, Color.LIGHT_GRAY);
    }
 
    public static void dialogsExamInpErrors(int check, JFrame frame){
-       JOptionPane.showMessageDialog(frame, errorExamText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
+      // JOptionPane.showMessageDialog(frame, errorExamText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
+       new ToastMessage(errorExamText[check-1], 2000, frame, Color.LIGHT_GRAY);
    }
 
    //Clearing text fields of a panel

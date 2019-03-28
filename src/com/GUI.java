@@ -7,6 +7,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 
+
 import javax.swing.*;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -31,8 +32,6 @@ import java.util.Date;
 
 
 //checklist
-
-//TODO: checking input in examP (some norms about height and weight -> Ask if that should be only a warning or an error -> error
 //todo layout
 
 
@@ -136,33 +135,47 @@ public class GUI extends JFrame{
 
         savePatientButton = new JButton("Zapisz");
         savePatientButton.setEnabled(false);
-        savePatientButton.addActionListener(e -> {
+        savePatientButton.addActionListener((ActionEvent e) -> {
             boolean sex;
             sex = male.isSelected();
             int checkAndSave;
             if(patientTable.getSelectionModel().isSelectionEmpty()) {
                 checkAndSave = presenter.savePatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if (checkAndSave == 0) {
-                    JOptionPane.showMessageDialog(frame,
-                            "Dodano Pacjenta");
+                    new ToastMessage("Dodano Pacjenta", 800, frame, Color.LIGHT_GRAY);
+                    /*JOptionPane.showMessageDialog(frame,
+                            "Dodano Pacjenta");*/
                     clearPatient(patientPanel);
                     AppUtils.setPanelEdit(patientPanel,false);
                     AppUtils.setPanelEdit(examPanel, false);
                 }
-                else AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
+                else {
+                    try {
+                        AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
             else{
                 int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable, patientCurrentlyEditedIndex);
                 if(checkAndEdit == 0){
-                    JOptionPane.showMessageDialog(frame,
-                            "Edytowano Pacjenta");
+                    /*JOptionPane.showMessageDialog(frame,
+                            "Edytowano Pacjenta");*/
+                    new ToastMessage( "Edytowano Pacjenta", 800, frame, Color.LIGHT_GRAY);
                     savePatientButton.setText("Zapisz");
                     clearPatient(patientPanel);
                     clearExam(examPanel);
                     AppUtils.setPanelEdit(patientPanel, false);
                     AppUtils.setPanelEdit(examPanel, false);
                 }
-                else AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
+                else {
+                    try {
+                        AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
 
 
