@@ -74,4 +74,8 @@ public final class AppUtils {
        }
    }
 
+   public static double countBmi(double mass, double height){
+        double bmi = mass/((height/100)*(height/100));
+        return bmi;
+    }
 }

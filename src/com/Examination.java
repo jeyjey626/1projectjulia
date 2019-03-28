@@ -38,4 +38,6 @@ public class Examination {
     public String  getMass() { return String.valueOf(mass); }
 
     public String getHeight() { return String.valueOf(height); }
+
+
 }

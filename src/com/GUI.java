@@ -1,6 +1,7 @@
 package com;
 
 
+import org.apache.commons.lang3.StringUtils;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -13,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,13 +25,12 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Properties;
 import java.util.Date;
-import java.util.TimeZone;
 
 
 //checklist
 
 //TODO: checking input in examP (some norms about height and weight -> Ask if that should be only a warning or an error -> error
-//Todo: live bmi returning - tf change value handler
+//Todo: bmi counting
 //todo layout
 
 
@@ -217,13 +219,61 @@ public class GUI extends JFrame{
         weightT = new JTextField(TEXTFIELDCOL);
         weightCnt.add(weightL);
         weightCnt.add(weightT);
+        weightT.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
 
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
+            private void countBmi(String weight, String height){
+                boolean weightCh = NumberCheck.isNumber(weight);
+
+                if(StringUtils.isNumeric(height) && weightCh && !StringUtils.isEmpty(weight) && !StringUtils.isEmpty(height)){
+                    double bmi = AppUtils.countBmi(Double.parseDouble(weight), Double.parseDouble(height));
+                    bmiT.setText(String.valueOf(bmi));
+                }
+            }
+        });
         //------------------------ Height ------------------------
         JPanel heightCnt = new JPanel();
         JLabel heightL = new JLabel("Wzrost [cm]:", SwingConstants.LEFT);
         heightT = new JTextField(TEXTFIELDCOL);
         heightCnt.add(heightL);
         heightCnt.add(heightT);
+
+        heightT.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                countBmi(weightT.getText(), heightT.getText());
+            }
+            private void countBmi(String weight, String height){
+                boolean weightCh = NumberCheck.isNumber(weight);
+
+                if(StringUtils.isNumeric(height) && weightCh && !StringUtils.isEmpty(weight) && !StringUtils.isEmpty(height)){
+                    double bmi = AppUtils.countBmi(Double.parseDouble(weight), Double.parseDouble(height));
+                    bmiT.setText(String.valueOf(bmi));
+                }
+            }
+        });
 
         //------------------------ BMI Index ------------------------
         JPanel bmiCnt = new JPanel();
