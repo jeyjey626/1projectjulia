@@ -1,6 +1,7 @@
 package com;
 
 import java.util.Date;
+import java.util.function.DoubleToIntFunction;
 
 public class Examination {
 
@@ -14,16 +15,16 @@ public class Examination {
         this.date = date;
         this.height = height;
         this.mass = mass;
-        this.bmi = mass / (height/100)*(height/100); //todo: Zdecydować czy to powinno być tutaj?? Czy są dobre typy zmiennych
+        this.bmi = mass / ((double) height /100)*((double) height /100);
     }
 
     public void setDate(Date date) { this.date = date; }
 
     public Date getDate() { return date; }
 
-    public double getBmi() { return bmi; }
+    public String getBmi() { return String.valueOf(bmi); }
 
-    public double getMass() { return mass; }
+    public String  getMass() { return String.valueOf(mass); }
 
-    public int getHeight() { return height; }
+    public String getHeight() { return String.valueOf(height); }
 }

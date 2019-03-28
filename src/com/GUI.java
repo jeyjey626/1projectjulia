@@ -55,6 +55,7 @@ public class GUI extends JFrame{
     private JTextField weightT, bmiT, heightT;
     private JDatePickerImpl datePicker;
     private JButton saveExamButton, abortExamButton;
+    private int patientCurrentlyEditedIndex;
 
     private int yearInit, monthInit, dayInit;
 
@@ -86,6 +87,7 @@ public class GUI extends JFrame{
         //------------------------------------------------------------------
         //----------------------- Patient Data Panel -----------------------
         //------------------------------------------------------------------
+        JPanel patientPanel = new JPanel();
         //------------------------ Name ------------------------
         JPanel nameCnt = new JPanel();
         JLabel nameL = new JLabel("Imię:", SwingConstants.LEFT);
@@ -103,7 +105,7 @@ public class GUI extends JFrame{
         //------------------------ PESEL ------------------------
         JPanel peselCnt = new JPanel();
         JLabel peselL = new JLabel("PESEL:", SwingConstants.LEFT);
-        peselT = new JTextField(TEXTFIELDCOL); //TODO: Input verifier
+        peselT = new JTextField(TEXTFIELDCOL);
         peselCnt.add(peselL);
         peselCnt.add(peselT);
 
@@ -146,7 +148,7 @@ public class GUI extends JFrame{
                 else AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             }
             else if(savePatientButton.getText().equals("Edytuj")){
-                int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
+                int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable, patientCurrentlyEditedIndex);
                 if(checkAndEdit == 0){
                     JOptionPane.showMessageDialog(frame,
                             "Edytowano Pacjenta");
@@ -161,7 +163,7 @@ public class GUI extends JFrame{
 
         abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
-        abortPatientButton.addActionListener((ActionEvent e) -> clearPatient());
+        abortPatientButton.addActionListener((ActionEvent e) -> clearPatient(patientPanel));
 
         aButtonCnt.add(savePatientButton);
         aButtonCnt.add(abortPatientButton);
@@ -170,7 +172,7 @@ public class GUI extends JFrame{
         //---------------------------------------------------------
         //------------------------ Patient Panel main comp ------------------------
         //---------------------------------------------------------
-        JPanel patientPanel = new JPanel();
+        
         TitledBorder title;
         title = BorderFactory.createTitledBorder("Dane Pacjenta");
         patientPanel.setBorder(title); //Setting titled border
@@ -185,7 +187,7 @@ public class GUI extends JFrame{
         //------------------------------------------------------------------
         //----------------------- Examination Panel -----------------------
         //------------------------------------------------------------------
-
+        JPanel examPanel = new JPanel();
         //------------------------ Date  -------------------------
         JPanel dateCnt = new JPanel();
         JLabel dateL = new JLabel("Data", SwingConstants.LEFT);
@@ -233,7 +235,7 @@ public class GUI extends JFrame{
         saveExamButton = new JButton("Zapisz");
         saveExamButton.addActionListener(e -> {
             int checkValue;
-            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable);
+            checkValue = presenter.saveEButton(datePicker.getJFormattedTextField().getText(), (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable, patientCurrentlyEditedIndex);
             if(checkValue == 1){
                 JOptionPane.showMessageDialog(frame,
                         "Uzupełnij wszystkie pola",
@@ -252,14 +254,14 @@ public class GUI extends JFrame{
         });
 
         abortExamButton = new JButton("Anuluj");
-        abortExamButton.addActionListener(e-> clearExam());
+        abortExamButton.addActionListener(e-> clearExam(examPanel));
         examButtons.add(saveExamButton);
         examButtons.add(abortExamButton);
 
         //---------------------------------------------------------
         //------------------------ Examination Panel main comp  ------------------------
         //---------------------------------------------------------
-        JPanel examPanel = new JPanel();
+        
         title = BorderFactory.createTitledBorder("Badanie");
         examPanel.setBorder(title);
         examPanel.add(weightCnt);
@@ -273,6 +275,7 @@ public class GUI extends JFrame{
         //---------------------------------------------------------
         //------------------------ Patient List Panel  ------------------------
         //---------------------------------------------------------
+        JPanel listPanel = new JPanel();
         //--------------------Table------------------------------
 
         patientTable = new JTable(){
@@ -304,18 +307,27 @@ public class GUI extends JFrame{
         JPanel listButtCnt = new JPanel();
 
         JButton addPatientButton = new JButton("Dodaj");
-        addPatientButton.addActionListener(e -> AppUtils.setPanelEdit(patientPanel, true));
+        addPatientButton.addActionListener(e -> {
+            AppUtils.setPanelEdit(patientPanel, true);
+            clearPatient(patientPanel);
+            clearExam(examPanel);
+        });
 
         JButton deletePatientButton = new JButton("Usuń");
         deletePatientButton.addActionListener(e -> {
             presenter.deletePButton(patientTable);
+            clearExam(examPanel);
+            clearPatient(patientPanel);//todo: is clearing necessary?
         });
 
         JButton editPatientButton = new JButton("Edytuj");
         editPatientButton.addActionListener((ActionEvent e) ->{
+            patientCurrentlyEditedIndex = patientTable.getSelectedRow();
             AppUtils.setPanelEdit(examPanel, true);
             datePicker.getComponent(1).setEnabled(true);
             AppUtils.setPanelEdit(patientPanel, true);
+            //patientTable.setRowSelectionAllowed(false); //todo: set true when saving edition
+
             nameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getName());
             surnameT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getSurname());
             peselT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getPesel());
@@ -323,15 +335,22 @@ public class GUI extends JFrame{
             female.setSelected(!presenter.patientVectorList.get(patientTable.getSelectedRow()).getSexBool());
             iBox.setSelectedIndex(presenter.patientVectorList.get(patientTable.getSelectedRow()).getInsuranceInt());
             savePatientButton.setText("Edytuj");
-            //TODO: update existing instead of adding new
+
+            if(presenter.patientVectorList.get(patientTable.getSelectedRow()).isExamination()) {
+                heightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getHeight());
+                weightT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getMass());
+                bmiT.setText(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getBmi());
+                datePicker.getJFormattedTextField().setText(String.valueOf((presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate())));
+                //datePicker.getModel().setDate(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
+                //datePicker.getModel().setValue(presenter.patientVectorList.get(patientTable.getSelectedRow()).getExaminationResults().getDate());
+                //todo: set date as was chosen
+            }
         });
         addPatientButton.addActionListener(e->{});
         listButtCnt.add(addPatientButton);
         listButtCnt.add(deletePatientButton);
         listButtCnt.add(editPatientButton);
 
-
-        JPanel listPanel = new JPanel();
         title = BorderFactory.createTitledBorder("Lista Pacjentów");
         listPanel.setBorder(title);
         listPanel.add(listButtCnt);
@@ -365,43 +384,20 @@ public class GUI extends JFrame{
 
     }
 
-    private void clearPatient(){
-        nameT.setText("");
-        surnameT.setText("");
-        peselT.setText("");
+    private void clearPatient(JPanel panel){
+        AppUtils.clearTextFields(panel);
         iBox.setSelectedIndex(0);
-    } //TODO: Write that in the library
-    private void clearExam(){
-        bmiT.setText("");
-        heightT.setText("");
-        weightT.setText("");
+    } 
+    
+    private void clearExam(JPanel panel){
+        AppUtils.clearTextFields(panel);
         datePicker.getModel().setDate(yearInit, monthInit, dayInit);
         datePicker.getModel().setValue(null);//resetting focus date and clearing value (nothing chosen)
         datePicker.getJFormattedTextField().setText("");
-    } //TODO: same as above
-
-
+    }
+    
     public static void main(String[] args)
     {
-        SwingUtilities.invokeLater(new Runnable()
-        {
-            @Override
-            public void run() { new GUI();}});
-
-        /*SwingUtilities.invokeLater(new Runnable()
-        {
-            @Override
-            public void run() {
-            JFrame frame = new JFrame("Ahoj Przygodo");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.add(new JLabel("Błagam zadziałaj"));
-            frame.pack();
-            frame.setVisible(true);
-            }
-        }
-        );*/
-
+        SwingUtilities.invokeLater(GUI::new);
     }
-
-
 }

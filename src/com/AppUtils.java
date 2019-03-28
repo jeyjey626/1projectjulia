@@ -8,7 +8,10 @@ import javax.swing.JTextField;
 
 public final class AppUtils {
 
+    //Column names
    public static String[] columns = {"Imię i nazwisko", "Płeć", "PESEL","Ubezpieczenie","Badanie"};
+
+   //Dialog text models
    private static final String[] errorPatientText = new String[]{
            "Zła długość numeru PESEL",
            "PESEL powienien zawierać jedynie cyfry",
@@ -16,6 +19,7 @@ public final class AppUtils {
            "Pacjent o takim numerze PESEL już istnieje w bazie"
    };
 
+   //default model of a Table with uneditable cells
    private static DefaultTableModel createTableM(Object[][] data){
     return new DefaultTableModel(data, columns){
         @Override
@@ -25,29 +29,28 @@ public final class AppUtils {
     };
    }
 
+   //Creating dialog messages TODO: Change into clouds
    public static void dialogsPatientDataErrors(int check, JFrame frame){
        JOptionPane.showMessageDialog(frame, errorPatientText[check-1]);
    }
 
-  public static void clearPanel(JPanel panel){
+   //Clearing text fields of a panel
+  public static void clearTextFields(JPanel panel){
        Component[] components = panel.getComponents();
        for (Component component : components) {
-           if (component.getClass().getName().equals("javax.swing.JPanel")) clearPanel((JPanel) panel);
-           if(component instanceof JTextField) {
-              // JTextField jTextField = null;
-               ((JTextField) component).setText("");
-               //component = jTextField;
-           }
-
+           if (component instanceof JPanel) clearTextFields((JPanel) component);
+           if(component instanceof JTextField)((JTextField) component).setText("");
        }
    }
 
+   //Updating table with new data
   public static void tableUpdate(Vector<Patient> patientVectorList, JTable table){
       Object[][] data = new Object[patientVectorList.size()][5];
       for(int i =0; i<patientVectorList.size();i++) data[i] = patientVectorList.get(i).getArray();
       table.setModel(AppUtils.createTableM(data));
   }
 
+    //Turning editing panels on/off
    public static void setPanelEdit(JPanel panel, Boolean isEditable){
        panel.setEnabled(isEditable);
 
@@ -60,6 +63,6 @@ public final class AppUtils {
 
            component.setEnabled(isEditable);
        }
-   } //Turning editing panels on
+   }
 
 }
