@@ -30,6 +30,8 @@ import java.util.Date;
 
 //checklist
 //todo layout in exam and patient panels
+//todo decide if abort button in exam should clear all or only exam
+//todo comment your code!
 
 public class GUI extends JFrame{
 
@@ -135,11 +137,7 @@ public class GUI extends JFrame{
                 checkAndSave = presenter.savePatient(nameT.getText(), surnameT.getText(), peselT.getText(), sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if (checkAndSave == 0) {
                     new ToastMessage("Dodano Pacjenta", 800, frame, Color.LIGHT_GRAY);
-                    /*JOptionPane.showMessageDialog(frame,
-                            "Dodano Pacjenta");*/
-                    clearPatient(patientPanel);
-                    AppUtils.setPanelEdit(patientPanel,false);
-                    AppUtils.setPanelEdit(examPanel, false);
+                    clearAndDisableBothPanels();
                 }
                 else {
                     AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
@@ -149,32 +147,20 @@ public class GUI extends JFrame{
                 int checkAndEdit = presenter.editPatient(nameT.getText(), surnameT.getText(), peselT.getText(),
                         sex, String.valueOf(iBox.getSelectedItem()), patientTable);
                 if(checkAndEdit == 0){
-                    /*JOptionPane.showMessageDialog(frame,
-                            "Edytowano Pacjenta");*/
                     new ToastMessage( "Edytowano Pacjenta", 800, frame, Color.LIGHT_GRAY);
                     savePatientButton.setText("Zapisz");
-                    clearPatient(patientPanel);
-                    clearExam(examPanel);
-                    AppUtils.setPanelEdit(patientPanel, false);
-                    AppUtils.setPanelEdit(examPanel, false);
+                    clearAndDisableBothPanels();
                 }
                 else {
                     AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
                 }
             }
-
-
-
         });
 
         JButton abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
         abortPatientButton.addActionListener((ActionEvent e) -> {
-            clearPatient(patientPanel);
-            clearExam(examPanel);
-            datePicker.getComponent(1).setEnabled(false);
-            AppUtils.setPanelEdit(patientPanel, true);
-            AppUtils.setPanelEdit(examPanel, true);
+            clearAndDisableBothPanels();
             patientTable.clearSelection();
         });
 
@@ -300,11 +286,8 @@ public class GUI extends JFrame{
                     (Date) datePicker.getModel().getValue(), weightT.getText(), heightT.getText(), patientTable);
             if(checkValue != 0)AppUtils.dialogsExamInpErrors(checkValue, frame);
             else {
-                clearExam(examPanel);
-                clearPatient(patientPanel);
+                clearAndDisableBothPanels();
                 savePatientButton.setText("Zapisz");
-                AppUtils.setPanelEdit(examPanel,false);
-                AppUtils.setPanelEdit(patientPanel,false);
                 new ToastMessage("Badanie zapisane", 1500, frame, Color.lightGray);
             }
         });
@@ -391,14 +374,10 @@ public class GUI extends JFrame{
         //-----------------------add/delete/edit buttons-----------------------------
         JPanel listButtCnt = new JPanel();
 
-
         JButton addPatientButton = new JButton("Dodaj");
         addPatientButton.addActionListener(e -> {
+            clearAndDisableBothPanels();
             AppUtils.setPanelEdit(patientPanel, true);
-            AppUtils.setPanelEdit(examPanel,false);
-            datePicker.getComponent(1).setEnabled(false);
-            clearPatient(patientPanel);
-            clearExam(examPanel);
             patientTable.clearSelection();
             savePatientButton.setText("Zapisz");
         });
@@ -407,10 +386,7 @@ public class GUI extends JFrame{
         deletePatientButton.setEnabled(false);
         deletePatientButton.addActionListener(e -> {
             presenter.deletePatient(patientTable);
-            clearExam(examPanel);
-            clearPatient(patientPanel);
-            AppUtils.setPanelEdit(patientPanel, false);
-            AppUtils.setPanelEdit(examPanel,false);
+            clearAndDisableBothPanels();
         });
 
         listButtCnt.add(addPatientButton);
@@ -428,12 +404,9 @@ public class GUI extends JFrame{
         add(basePanel);
         frame.setContentPane(basePanel);
 
-        //basePanel.add(Box.createVerticalGlue());
         patientPanel.setLayout(new BoxLayout(patientPanel, BoxLayout.PAGE_AXIS));
         examPanel.setLayout(new BoxLayout(examPanel, BoxLayout.PAGE_AXIS));
-        /*JPanel bottomPanel = new JPanel();
-        bottomPanel.setAlignmentX(1f);
-        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.LINE_AXIS));*/
+
         JPanel leftPanel = new JPanel();
         leftPanel.add(patientPanel);
         leftPanel.add(examPanel);
@@ -470,4 +443,12 @@ public class GUI extends JFrame{
     }
     
     public static void main(String[] args){ SwingUtilities.invokeLater(GUI::new); }
+
+    private void clearAndDisableBothPanels(){
+        AppUtils.setPanelEdit(examPanel, false);
+        AppUtils.setPanelEdit(patientPanel, false);
+        clearPatient(patientPanel);
+        clearExam(examPanel);
+        datePicker.getComponent(1).setEnabled(false);
+    }
 }
