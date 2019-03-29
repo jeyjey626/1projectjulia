@@ -1,7 +1,9 @@
-package com;
+package Utilities;
+
+import com.Patient;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.*;
 import java.awt.*;
 import java.util.Formatter;
 import java.util.Vector;
@@ -37,14 +39,14 @@ public final class AppUtils {
     };
    }
 
-   public static void dialogsPatientDataErrors(int check, JFrame frame) throws InterruptedException {
+   public static void dialogsPatientDataErrors(int check, JFrame frame) {
        //JOptionPane.showMessageDialog(frame, errorPatientText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
-       new ToastMessage(errorPatientText[check-1], 2000, frame, Color.LIGHT_GRAY);
+       new ToastMessage(errorPatientText[check - 1], 2500, frame, Color.RED);
    }
 
    public static void dialogsExamInpErrors(int check, JFrame frame){
       // JOptionPane.showMessageDialog(frame, errorExamText[check-1],"Błąd", JOptionPane.ERROR_MESSAGE);
-       new ToastMessage(errorExamText[check-1], 2000, frame, Color.LIGHT_GRAY);
+       new ToastMessage(errorExamText[check - 1], 2500, frame, Color.RED);
    }
 
    //Clearing text fields of a panel
@@ -61,6 +63,8 @@ public final class AppUtils {
       Object[][] data = new Object[patientVectorList.size()][5];
       for(int i =0; i<patientVectorList.size();i++) data[i] = patientVectorList.get(i).getArray();
       table.setModel(AppUtils.createTableM(data));
+      setCellsAlignment(table, SwingConstants.CENTER);
+      adjustColumns(table);
   }
 
     //Turning editing panels on/off
@@ -84,8 +88,47 @@ public final class AppUtils {
         double finalBmi = mass/heightDoub;
        Formatter formatter = new Formatter();
        formatter.format("%.2f", finalBmi);
-      // DecimalFormat bmiFormat = new DecimalFormat("#.00");
-       //bmiFormat.format(finalBmi);
        return String.valueOf(formatter);
+    }
+
+    private static void setCellsAlignment(JTable table, int alignment)
+    {
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        rightRenderer.setHorizontalAlignment(alignment);
+
+        TableModel tableModel = table.getModel();
+
+        for (int columnIndex = 0; columnIndex < (tableModel.getColumnCount()-1); columnIndex++)
+        {
+            table.getColumnModel().getColumn(columnIndex).setCellRenderer(rightRenderer);
+        }
+    }
+
+    private static void adjustColumns(JTable table){
+
+        for (int column = 0; column < table.getColumnCount(); column++)
+        {
+            TableColumn tableColumn = table.getColumnModel().getColumn(column);
+            int preferredWidth = tableColumn.getMinWidth();
+            int maxWidth = tableColumn.getMaxWidth();
+
+            for (int row = 0; row < table.getRowCount(); row++)
+            {
+                TableCellRenderer cellRenderer = table.getCellRenderer(row, column);
+                Component c = table.prepareRenderer(cellRenderer, row, column);
+                int width = c.getPreferredSize().width + table.getIntercellSpacing().width;
+                preferredWidth = Math.max(preferredWidth, width);
+
+                //  We've exceeded the maximum width, no need to check other rows
+
+                if (preferredWidth >= maxWidth)
+                {
+                    preferredWidth = maxWidth;
+                    break;
+                }
+            }
+
+            tableColumn.setPreferredWidth( preferredWidth );
+        }
     }
 }

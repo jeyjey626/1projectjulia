@@ -10,8 +10,6 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-
-
 import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -42,21 +40,17 @@ public class GUI extends JFrame{
 
     private JPanel examPanel;
     private JPanel patientPanel;
-    private JPanel listPanel;
 
     private JTable patientTable;
     private JFrame frame;
-    private JMenuItem closeApp;
 
-    private JButton savePatientButton, abortPatientButton;
+    private JButton savePatientButton;
     private JTextField nameT, surnameT, peselT;
     private JComboBox iBox;
-    private ButtonGroup group;
     private JRadioButton male, female;
 
     private JTextField weightT, bmiT, heightT;
     private JDatePickerImpl datePicker;
-    private JButton saveExamButton, abortExamButton;
     private JButton deletePatientButton;
 
     private int yearInit, monthInit, dayInit;
@@ -79,8 +73,8 @@ public class GUI extends JFrame{
         JMenu menu = new JMenu("Aplikacja");
         menu.setMnemonic(KeyEvent.VK_A);
 
-        closeApp = new JMenuItem("Zamknij ALT+F4");
-        closeApp.addActionListener( e -> frame.dispose());
+        JMenuItem closeApp = new JMenuItem("Zamknij ALT+F4");
+        closeApp.addActionListener(e -> frame.dispose());
         menu.add(closeApp);
         menuBar.add(menu);
 
@@ -114,7 +108,7 @@ public class GUI extends JFrame{
         JLabel sexL = new JLabel("Płeć", SwingConstants.LEFT);
         male = new JRadioButton("mężczyzna", true);
         female = new JRadioButton("kobieta", false);
-        group = new ButtonGroup();
+        ButtonGroup group = new ButtonGroup();
         group.add(male);
         group.add(female);
         sexCnt.add(sexL);
@@ -149,11 +143,7 @@ public class GUI extends JFrame{
                     AppUtils.setPanelEdit(examPanel, false);
                 }
                 else {
-                    try {
-                        AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    }
+                    AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
                 }
             }
             else{
@@ -170,11 +160,7 @@ public class GUI extends JFrame{
                     AppUtils.setPanelEdit(examPanel, false);
                 }
                 else {
-                    try {
-                        AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
-                    } catch (InterruptedException e1) {
-                        e1.printStackTrace();
-                    }
+                    AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
                 }
             }
 
@@ -182,7 +168,7 @@ public class GUI extends JFrame{
 
         });
 
-        abortPatientButton = new JButton("Anuluj");
+        JButton abortPatientButton = new JButton("Anuluj");
         abortPatientButton.setEnabled(false);
         abortPatientButton.addActionListener((ActionEvent e) -> {
             clearPatient(patientPanel);
@@ -304,7 +290,7 @@ public class GUI extends JFrame{
         //-----------------------Button Panel ------------------------
         JPanel examButtons = new JPanel();
 
-        saveExamButton = new JButton("Zapisz");
+        JButton saveExamButton = new JButton("Zapisz");
         saveExamButton.addActionListener(e -> {
             int checkValue;
             checkValue = presenter.saveExamination(datePicker.getJFormattedTextField().getText(),
@@ -321,7 +307,7 @@ public class GUI extends JFrame{
             }
         });
 
-        abortExamButton = new JButton("Anuluj");
+        JButton abortExamButton = new JButton("Anuluj");
         abortExamButton.addActionListener(e-> clearExam(examPanel));
         examButtons.add(saveExamButton);
         examButtons.add(abortExamButton);
@@ -427,7 +413,7 @@ public class GUI extends JFrame{
         listButtCnt.add(addPatientButton);
         listButtCnt.add(deletePatientButton);
 
-        listPanel = new JPanel();
+        JPanel listPanel = new JPanel();
         title = BorderFactory.createTitledBorder("Lista Pacjentów");
         listPanel.setBorder(title);
 

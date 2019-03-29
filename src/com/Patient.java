@@ -1,12 +1,7 @@
 package com;
 
-
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Vector;
 
 public class Patient {
 
@@ -29,18 +24,14 @@ public class Patient {
         this.examination = false; //Patient starts without the examination
     }
 
-    public Vector<Object> getVector(){
-        return new Vector<>(Arrays.asList(getName()+" "+getSurname(),getSex(),getPesel(),getInsurance(),isExamination()));
-    }
+
     public Object [] getArray(){
-        Object[] object = {getName()+" "+getSurname(),getSex(),getPesel(),getInsurance(),isExamination()};
-        return object;
+        return new Object[]{getName()+" "+getSurname(),getSex(),getPesel(),getInsurance(),isExamination()};
     }
 
     public Boolean getSexBool(){
         Boolean boolSex;
-        if(this.sex == "M")boolSex = true;
-        else boolSex = false;
+        boolSex = this.sex.equals("M");
         return boolSex;
     }
 
@@ -52,13 +43,13 @@ public class Patient {
         return insInt;
     }
 
-    public String getInsurance() { return insurance; }
+    private String getInsurance() { return insurance; }
 
     public String getName() { return name; }
 
     public String getSurname() { return surname;}
 
-    public String getSex() { return sex; }
+    private String getSex() { return sex; }
 
     public String getPesel() { return pesel; }
 
@@ -69,7 +60,7 @@ public class Patient {
     public void setExaminationResults(Date date, double mass, int height, String sDate) //Set examination somewhere along by giving examination object
     {
         if(examination) examinationResults.setExamination(date, mass, height, sDate);
-        else examinationResults = new Examination(date, mass, height, sDate); //todo: change here to enable changes, not only new ones
+        else examinationResults = new Examination(date, mass, height, sDate);
     }
 
     public void setExamination(boolean examination) { this.examination = examination; }
