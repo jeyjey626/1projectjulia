@@ -31,7 +31,6 @@ import java.util.Date;
 //checklist
 //todo layout in exam and patient panels
 
-
 public class GUI extends JFrame{
 
 
@@ -46,7 +45,7 @@ public class GUI extends JFrame{
 
     private JButton savePatientButton;
     private JTextField nameT, surnameT, peselT;
-    private JComboBox iBox;
+    private JComboBox<String> iBox;
     private JRadioButton male, female;
 
     private JTextField weightT, bmiT, heightT;
@@ -119,7 +118,7 @@ public class GUI extends JFrame{
         JPanel insuranceCnt = new JPanel();
         JLabel insuranceL = new JLabel("Ubezpieczenie:", SwingConstants.LEFT);
         String[] insuranceStrings = {"Brak", "NFZ", "Prywatne"};
-        iBox = new JComboBox(insuranceStrings); //TODO: Check if it's A-ok
+        iBox = new JComboBox<>(insuranceStrings); //TODO: Check if it's A-ok
         insuranceCnt.add(insuranceL);
         insuranceCnt.add(iBox);
 

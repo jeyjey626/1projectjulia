@@ -63,5 +63,9 @@ public class Patient {
         else examinationResults = new Examination(date, mass, height, sDate);
     }
 
+    public void setExamFromObject(Examination exam){
+        this.examinationResults = exam;
+    }
+
     public void setExamination(boolean examination) { this.examination = examination; }
 }

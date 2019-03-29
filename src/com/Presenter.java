@@ -35,7 +35,13 @@ public class Presenter {
         int check = checkPatientInput(name, surname, pesel);
         //when patient is already in database
         if(check == 4 || check == 0){
+
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
+            if(patientVectorList.get(table.getSelectedRow()).isExamination()){
+                Examination examRes = patientVectorList.get(table.getSelectedRow()).getExaminationResults();
+                patient.setExamination(true);
+                patient.setExamFromObject(examRes);
+            }
             patientVectorList.set(table.getSelectedRow(), patient);
             AppUtils.tableUpdate(patientVectorList, table);
             check = 0; //all ok, changing check for the right window
