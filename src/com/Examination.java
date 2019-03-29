@@ -22,13 +22,7 @@ public class Examination {
         double heightDoub = heightPerc*heightPerc;
         this.bmi = mass/heightDoub;
     }
-    /*public void setFromObject(Examination examination){
-        this.date = examination.date;
-        this.mass = examination.mass;
-        this.height = examination.height;
-        this.bmi = examination.bmi;
-        this.sDate = examination.sDate;
-    }*/
+
     public void setExamination(Date date, double mass, int height, String sDate) //for editing exam purposes, nothing is set separately
     {
         this.sDate = sDate;
