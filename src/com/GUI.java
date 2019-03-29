@@ -118,7 +118,7 @@ public class GUI extends JFrame{
         JPanel insuranceCnt = new JPanel();
         JLabel insuranceL = new JLabel("Ubezpieczenie:", SwingConstants.LEFT);
         String[] insuranceStrings = {"Brak", "NFZ", "Prywatne"};
-        iBox = new JComboBox<>(insuranceStrings); //TODO: Check if it's A-ok
+        iBox = new JComboBox<>(insuranceStrings);
         insuranceCnt.add(insuranceL);
         insuranceCnt.add(iBox);
 
@@ -301,8 +301,7 @@ public class GUI extends JFrame{
                 savePatientButton.setText("Zapisz");
                 AppUtils.setPanelEdit(examPanel,false);
                 AppUtils.setPanelEdit(patientPanel,false);
-                //todo: dialogs about edit/save
-
+                new ToastMessage("Badanie zapisane", 1500, frame, Color.lightGray);
             }
         });
 
