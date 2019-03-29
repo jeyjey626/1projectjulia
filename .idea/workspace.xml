@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="82ef3bb3-c299-449a-ba36-7eea17be9574" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/Examination.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/Examination.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" afterPath="$PROJECT_DIR$/out/production/OSM1/com/GUI.class" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities/ToastMessage.java" afterPath="$PROJECT_DIR$/src/Utilities/ToastMessage.java" />
       <change beforePath="$PROJECT_DIR$/src/com/GUI.java" afterPath="$PROJECT_DIR$/src/com/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,27 +21,26 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="302" column="58" lean-forward="false" selection-start-line="302" selection-start-column="58" selection-end-line="302" selection-end-column="58" />
+            <state relative-caret-position="-65">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#1488#1489#0" expanded="true" />
                 <element signature="e#1512#1513#0" expanded="true" />
-                <element signature="e#6221#6334#0" expanded="false" />
-                <element signature="class#8562:9507" expanded="false" />
-                <element signature="e#8659#8660#0" expanded="true" />
-                <element signature="e#8737#8738#0" expanded="true" />
-                <element signature="e#8816#8817#0" expanded="true" />
-                <element signature="e#8894#8895#0" expanded="true" />
-                <element signature="e#8974#8975#0" expanded="true" />
-                <element signature="e#9052#9053#0" expanded="true" />
-                <element signature="class#9859:10804" expanded="false" />
-                <element signature="e#9956#9957#0" expanded="true" />
-                <element signature="e#10034#10035#0" expanded="true" />
-                <element signature="e#10113#10114#0" expanded="true" />
-                <element signature="e#10191#10192#0" expanded="true" />
-                <element signature="e#10271#10272#0" expanded="true" />
-                <element signature="e#10349#10350#0" expanded="true" />
-                <element signature="e#13932#16485#0" expanded="false" />
+                <element signature="class#8761:9706" expanded="false" />
+                <element signature="e#8858#8859#0" expanded="true" />
+                <element signature="e#8936#8937#0" expanded="true" />
+                <element signature="e#9015#9016#0" expanded="true" />
+                <element signature="e#9093#9094#0" expanded="true" />
+                <element signature="e#9173#9174#0" expanded="true" />
+                <element signature="e#9251#9252#0" expanded="true" />
+                <element signature="class#10058:11003" expanded="false" />
+                <element signature="e#10155#10156#0" expanded="true" />
+                <element signature="e#10233#10234#0" expanded="true" />
+                <element signature="e#10312#10313#0" expanded="true" />
+                <element signature="e#10390#10391#0" expanded="true" />
+                <element signature="e#10470#10471#0" expanded="true" />
+                <element signature="e#10548#10549#0" expanded="true" />
+                <element signature="e#14131#16684#0" expanded="false" />
                 <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
                 <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
               </folding>
@@ -57,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/Examination.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="399">
-              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+              <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,8 +63,8 @@
       <file leaf-file-name="AppUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utilities/AppUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="48" column="74" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="74" />
+            <state relative-caret-position="819">
+              <caret line="48" column="74" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#createTableM#0;class#AppUtils#0" expanded="false" />
@@ -88,8 +83,8 @@
       <file leaf-file-name="DateLabelFormatter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utilities/DateLabelFormatter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="294">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/src/Utilities/ToastMessage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +117,8 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state relative-caret-position="861">
+              <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#savePatient#0;class#Presenter#0" expanded="false" />
@@ -145,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>iB</find>
       <find>iBo</find>
       <find>checkandsave</find>
       <find>jcom</find>
@@ -175,6 +169,7 @@
       <find>deleteP</find>
       <find>frame</find>
       <find>selec</find>
+      <find>abor</find>
     </findStrings>
     <replaceStrings>
       <replace>savePatientButton</replace>
@@ -312,7 +307,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -342,6 +336,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -656,11 +651,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553820377785</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Message box for exams added">
+      <created>1553821005634</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1553821005634</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1170" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -671,7 +673,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32673267" sideWeight="0.55885416" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3265306" sideWeight="0.44114584" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32563257" sideWeight="0.44114584" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -696,7 +698,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First patientpresenter changes, before creating separate actionlisteners." />
     <MESSAGE value="Working first actionlisteners with lambda expressions" />
     <MESSAGE value="PESEL check done" />
     <MESSAGE value="Started check on exam saving" />
@@ -721,7 +722,8 @@
     <MESSAGE value="toast message binded, files sorted" />
     <MESSAGE value="files clearing, working" />
     <MESSAGE value="bug fixed -&gt; exam lost when editing patient" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixed -&gt; exam lost when editing patient" />
+    <MESSAGE value="Message box for exams added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Message box for exams added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -745,22 +747,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -787,22 +788,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -829,22 +829,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -871,22 +870,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -914,22 +912,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -956,22 +953,21 @@
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>
@@ -1102,36 +1098,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Toast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Toast.java" />
     <entry file="file://$PROJECT_DIR$/out/production/OSM1/com/patientList.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="38" column="67" lean-forward="true" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#1343#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/patientList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/patientList.java" />
     <entry file="file://$PROJECT_DIR$/src/Utilities/DateLabelFormatter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1148,8 +1127,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state relative-caret-position="861">
+          <caret line="47" column="9" lean-forward="false" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#savePatient#0;class#Presenter#0" expanded="false" />
@@ -1175,17 +1154,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/Examination.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utilities/ToastMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1194,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utilities/AppUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="48" column="74" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="74" />
+        <state relative-caret-position="819">
+          <caret line="48" column="74" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createTableM#0;class#AppUtils#0" expanded="false" />
@@ -1210,29 +1179,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Utilities/ToastMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="302" column="58" lean-forward="false" selection-start-line="302" selection-start-column="58" selection-end-line="302" selection-end-column="58" />
+        <state relative-caret-position="-65">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1488#1489#0" expanded="true" />
             <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#6221#6334#0" expanded="false" />
-            <element signature="class#8562:9507" expanded="false" />
-            <element signature="e#8659#8660#0" expanded="true" />
-            <element signature="e#8737#8738#0" expanded="true" />
-            <element signature="e#8816#8817#0" expanded="true" />
-            <element signature="e#8894#8895#0" expanded="true" />
-            <element signature="e#8974#8975#0" expanded="true" />
-            <element signature="e#9052#9053#0" expanded="true" />
-            <element signature="class#9859:10804" expanded="false" />
-            <element signature="e#9956#9957#0" expanded="true" />
-            <element signature="e#10034#10035#0" expanded="true" />
-            <element signature="e#10113#10114#0" expanded="true" />
-            <element signature="e#10191#10192#0" expanded="true" />
-            <element signature="e#10271#10272#0" expanded="true" />
-            <element signature="e#10349#10350#0" expanded="true" />
-            <element signature="e#13932#16485#0" expanded="false" />
+            <element signature="class#8761:9706" expanded="false" />
+            <element signature="e#8858#8859#0" expanded="true" />
+            <element signature="e#8936#8937#0" expanded="true" />
+            <element signature="e#9015#9016#0" expanded="true" />
+            <element signature="e#9093#9094#0" expanded="true" />
+            <element signature="e#9173#9174#0" expanded="true" />
+            <element signature="e#9251#9252#0" expanded="true" />
+            <element signature="class#10058:11003" expanded="false" />
+            <element signature="e#10155#10156#0" expanded="true" />
+            <element signature="e#10233#10234#0" expanded="true" />
+            <element signature="e#10312#10313#0" expanded="true" />
+            <element signature="e#10390#10391#0" expanded="true" />
+            <element signature="e#10470#10471#0" expanded="true" />
+            <element signature="e#10548#10549#0" expanded="true" />
+            <element signature="e#14131#16684#0" expanded="false" />
             <element signature="method#clearPatient#0;class#GUI#0" expanded="false" />
             <element signature="method#clearExam#0;class#GUI#0" expanded="false" />
           </folding>

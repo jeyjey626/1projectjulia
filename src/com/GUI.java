@@ -171,6 +171,10 @@ public class GUI extends JFrame{
         abortPatientButton.setEnabled(false);
         abortPatientButton.addActionListener((ActionEvent e) -> {
             clearPatient(patientPanel);
+            clearExam(examPanel);
+            datePicker.getComponent(1).setEnabled(false);
+            AppUtils.setPanelEdit(patientPanel, true);
+            AppUtils.setPanelEdit(examPanel, true);
             patientTable.clearSelection();
         });
 
@@ -392,6 +396,7 @@ public class GUI extends JFrame{
         addPatientButton.addActionListener(e -> {
             AppUtils.setPanelEdit(patientPanel, true);
             AppUtils.setPanelEdit(examPanel,false);
+            datePicker.getComponent(1).setEnabled(false);
             clearPatient(patientPanel);
             clearExam(examPanel);
             patientTable.clearSelection();
