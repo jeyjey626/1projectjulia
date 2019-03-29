@@ -1,6 +1,10 @@
 package com;
 
 
+import Utilities.AppUtils;
+import Utilities.DateLabelFormatter;
+import Utilities.NumberCheck;
+import Utilities.ToastMessage;
 import org.apache.commons.lang3.StringUtils;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -9,7 +13,6 @@ import org.jdatepicker.impl.UtilDateModel;
 
 
 import javax.swing.*;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,7 +31,7 @@ import java.util.Date;
 
 
 //checklist
-//todo layout
+//todo layout in exam and patient panels
 
 
 public class GUI extends JFrame{
@@ -69,6 +72,7 @@ public class GUI extends JFrame{
 
         presenter = new Presenter();
         frame = new JFrame ("Rejestracja Wyników Badań");
+
         frame.setVisible(true);
 
         JMenuBar menuBar = new JMenuBar();
@@ -361,9 +365,7 @@ public class GUI extends JFrame{
 
                 patientTable.setModel(defaultTableModel);
                 patientTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-                patientTable.getSelectionModel().addListSelectionListener(e -> {
-                    // if(patientList.getSelectedRow() != -1)
-                });
+
                 patientTable.getSelectionModel().addListSelectionListener(e -> {
                     if(patientTable.getSelectedRow()!= -1) {
                         deletePatientButton.setEnabled(true);
@@ -398,9 +400,9 @@ public class GUI extends JFrame{
 
             JScrollPane patientTableScroll = new JScrollPane(patientTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
-
         //-----------------------add/delete/edit buttons-----------------------------
         JPanel listButtCnt = new JPanel();
+
 
         JButton addPatientButton = new JButton("Dodaj");
         addPatientButton.addActionListener(e -> {
@@ -418,6 +420,8 @@ public class GUI extends JFrame{
             presenter.deletePatient(patientTable);
             clearExam(examPanel);
             clearPatient(patientPanel);
+            AppUtils.setPanelEdit(patientPanel, false);
+            AppUtils.setPanelEdit(examPanel,false);
         });
 
         listButtCnt.add(addPatientButton);
@@ -426,28 +430,38 @@ public class GUI extends JFrame{
         listPanel = new JPanel();
         title = BorderFactory.createTitledBorder("Lista Pacjentów");
         listPanel.setBorder(title);
-        listPanel.add(listButtCnt);
+
         listPanel.add(patientTableScroll);
+        listPanel.add(listButtCnt);
 
         JPanel basePanel = new JPanel();
-        basePanel.setLayout(new BoxLayout(basePanel, BoxLayout.Y_AXIS));
+        basePanel.setLayout(new BoxLayout(basePanel, BoxLayout.LINE_AXIS));
         add(basePanel);
         frame.setContentPane(basePanel);
 
-        basePanel.add(Box.createVerticalGlue());
-
+        //basePanel.add(Box.createVerticalGlue());
+        patientPanel.setLayout(new BoxLayout(patientPanel, BoxLayout.PAGE_AXIS));
+        examPanel.setLayout(new BoxLayout(examPanel, BoxLayout.PAGE_AXIS));
         /*JPanel bottomPanel = new JPanel();
         bottomPanel.setAlignmentX(1f);
-        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.X_AXIS));*/
+        bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.LINE_AXIS));*/
+        JPanel leftPanel = new JPanel();
+        leftPanel.add(patientPanel);
+        leftPanel.add(examPanel);
 
-        basePanel.add(Box.createRigidArea(new Dimension(15, 15)));
-        basePanel.add(patientPanel);
-        basePanel.add(examPanel);
+        leftPanel.setAlignmentX(1f);
+        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+
+        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.PAGE_AXIS));
+
+        basePanel.add(leftPanel);
         basePanel.add(listPanel);
 
         frame.setJMenuBar(menuBar);
+        frame.setSize(750,550);
+        frame.setLocationRelativeTo(null);
         frame.pack();
-        frame.setSize(1000,800);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         AppUtils.setPanelEdit(examPanel, false);
         datePicker.getComponent(1).setEnabled(false);

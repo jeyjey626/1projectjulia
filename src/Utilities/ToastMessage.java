@@ -1,14 +1,14 @@
-package com;
+package Utilities;
 
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-class ToastMessage extends JDialog {
+public class ToastMessage extends JDialog {
     private int miliseconds;
 
-    ToastMessage(String toastString, int time, JFrame frame, Color backColor) {
+   public ToastMessage(String toastString, int time, JFrame frame, Color backColor) {
         this.miliseconds = time;
         setUndecorated(true);
         getContentPane().setLayout(new BorderLayout(0, 0));
@@ -27,10 +27,10 @@ class ToastMessage extends JDialog {
 
 
         setAlwaysOnTop(true);
-        Dimension dim = frame.getSize();
-        int y = dim.height / 2 - getSize().height / 2;
-        int half = y / 2;
-        setLocation(dim.width / 2 - getSize().width / 2, y -half);
+        Point dim = frame.getLocationOnScreen();
+        int y = dim.y;
+        int half = frame.getSize().height / 2;
+        setLocation(dim.x + frame.getSize().width / 2 - getWidth()/2, y + half);
         panel.add(toastLabel);
         setVisible(true);
 
