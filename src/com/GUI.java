@@ -29,6 +29,7 @@ import java.util.Date;
 //checklist
 //todo layout in exam and patient panels
 //todo comment your code!
+//TODO:  link libraries
 
 public class GUI extends JFrame{
 
