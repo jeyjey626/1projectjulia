@@ -25,11 +25,13 @@ import java.time.ZoneId;
 import java.util.Properties;
 import java.util.Date;
 
-
-//checklist
-//todo layout in exam and patient panels
+// Two external libraries downloaded from:
+// jdatepicker - calendar tool v. 1.3.4
+// https://search.maven.org/search?q=jdatepicker
+//commons-lang: 4 checking if string == number, v. 3.8.1
+// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.8.1
+// some solutions created with help from stackoverflow
 //todo comment your code!
-//TODO:  link libraries
 
 public class GUI extends JFrame{
 
