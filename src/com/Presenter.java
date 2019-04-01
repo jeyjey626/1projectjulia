@@ -56,6 +56,9 @@ public class Presenter {
             Patient patient = new Patient(name, surname, pesel, sex, insurance);
             patientVectorList.add(patient);
             AppUtils.tableUpdate(patientVectorList, table);
+            ListSelectionModel selectionModel =
+                    table.getSelectionModel();
+            selectionModel.setSelectionInterval(patientVectorList.size()-1, patientVectorList.size()-1);
         }
         return check;
     }

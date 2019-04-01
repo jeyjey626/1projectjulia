@@ -364,7 +364,7 @@ public class GUI extends JFrame{
                     String.valueOf(iBox.getSelectedItem()), patientTable);
             if (checkAndSave == 0) {
                 new ToastMessage("Dodano Pacjenta", 800, frame, Color.LIGHT_GRAY);
-                clearAndDisableBothPanels(); return;
+                AppUtils.setPanelEdit(patientPanel, true); return;
             }
             AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             return;
