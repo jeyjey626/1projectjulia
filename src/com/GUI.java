@@ -30,8 +30,7 @@ import java.util.Date;
 // https://search.maven.org/search?q=g:org.jdatepicker
 //commons-lang3: 4 checking if string == number, v. 3.8.1
 // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.8.1
-// some solutions created with help from stackoverflow
-//todo comment your code!
+
 
 public class GUI extends JFrame{
 
@@ -364,7 +363,7 @@ public class GUI extends JFrame{
                     String.valueOf(iBox.getSelectedItem()), patientTable);
             if (checkAndSave == 0) {
                 new ToastMessage("Dodano Pacjenta", 800, frame, Color.LIGHT_GRAY);
-                AppUtils.setPanelEdit(patientPanel, true); return;
+                AppUtils.setPanelEdit(patientPanel, true); return; //enable instant exam adding
             }
             AppUtils.dialogsPatientDataErrors(checkAndSave, frame);
             return;
@@ -375,7 +374,7 @@ public class GUI extends JFrame{
                 new ToastMessage( "Edytowano Pacjenta", 800, frame, Color.LIGHT_GRAY);
                 savePatientButton.setText("Zapisz");
                 clearAndDisableBothPanels();
-                return;
+                return; //finishing one patient
             }
             AppUtils.dialogsPatientDataErrors(checkAndEdit, frame);
     }

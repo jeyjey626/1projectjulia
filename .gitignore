@@ -1,0 +1,8 @@
+# ---> IntelliJ
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+out/
