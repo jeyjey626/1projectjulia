@@ -26,9 +26,9 @@ import java.util.Properties;
 import java.util.Date;
 
 // Two external libraries downloaded from:
-// jdatepicker - calendar tool v. 1.3.4
-// https://search.maven.org/search?q=jdatepicker
-//commons-lang: 4 checking if string == number, v. 3.8.1
+// jdatepicker - calendar tool v. 1.3.4 (release date: 2014)
+// https://search.maven.org/search?q=g:org.jdatepicker
+//commons-lang3: 4 checking if string == number, v. 3.8.1
 // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.8.1
 // some solutions created with help from stackoverflow
 //todo comment your code!
