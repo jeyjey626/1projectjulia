@@ -76,7 +76,7 @@ public class Presenter {
     private int checkPatientInput(String name, String surname, String pesel){
 
         if(StringUtils.isEmpty(pesel)||StringUtils.isEmpty(name)||StringUtils.isEmpty(surname))return 3;
-        if(!StringUtils.isAlpha(name) || !StringUtils.isAlpha(surname)) return 5;
+        if(!StringUtils.isAlpha(name) || (!StringUtils.isAlpha(surname)&&!AppUtils.isDoubleSurname(surname))) return 5; //checking if only letters in name & surname + checking double surname
         if(!StringUtils.isNumeric(pesel))return 2;
         if(pesel.length() != 11) return 1;
         for (Patient aPatientVectorList : patientVectorList) { if (aPatientVectorList.getPesel().equals(pesel)) {return 4;} }

@@ -1,6 +1,7 @@
 package Utilities;
 
 import com.Patient;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
 import javax.swing.table.*;
@@ -20,7 +21,7 @@ public final class AppUtils {
            "PESEL powienien zawierać jedynie cyfry",
            "Uzupełnij wszystkie pola",
            "Pacjent o takim numerze PESEL już istnieje w bazie",
-           "Imię i Nazwisko powinno składać się jedynie z liter"
+           "Imię i Nazwisko powinno składać się jedynie z liter, dopuszczalne jest podwójne nazwisko z '-'"
    };
    private static final String[] errorExamText = new String[]{
            "Uzupełnij wszystkie pola",
@@ -130,5 +131,10 @@ public final class AppUtils {
 
             tableColumn.setPreferredWidth( preferredWidth );
         }
+    }
+
+    public static boolean isDoubleSurname(String string){
+       String stringArray = string.replaceFirst("-", "a");
+       return StringUtils.isAlpha(stringArray);
     }
 }
