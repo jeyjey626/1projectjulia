@@ -82,15 +82,19 @@ public class Presenter {
         int i = 0;
         for (Patient aPatientVectorList : patientVectorList) {
             if (aPatientVectorList.getPesel().equals(pesel)) {
-                if(!table.getSelectionModel().isSelectionEmpty()){
-                    if (table.getSelectedRow() == i) return 5; // Ok to edit pesel of an existing patient, but it cannot match another's patient pesel
-                    // 5 = changed pesel, but unique in database
-                }
-            return 4; // new or changed pesel not unique in database
+                return checkingPeselUniqueness(table, i);
             }
             i++;
         }
         return 0;
+    }
+
+    private  int checkingPeselUniqueness(JTable table, int index){
+        if(!table.getSelectionModel().isSelectionEmpty()){
+            if (table.getSelectedRow() == index) return 5; // Ok to edit pesel of an existing patient, but it cannot match another's patient pesel
+            // 5 = changed pesel, but unique in database
+        }
+        return 4;// new or changed pesel not unique in database
     }
 
 }
